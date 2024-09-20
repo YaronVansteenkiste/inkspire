@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Container, Form, Nav, Navbar, NavDropdown} from "react-bootstrap";
 
-const Header = () => {
+function Header() {
     return (
         <Navbar expand="lg" className="bg-dark navbar-dark border-bottom border-light-subtle">
             <Container fluid>
@@ -16,7 +16,7 @@ const Header = () => {
                         <Nav.Link href="#action1">Explore</Nav.Link>
                         <Nav.Link href="#action2">Collab</Nav.Link>
                     </Nav>
-                    <Form className="d-flex mx-auto w-100 w-lg-50">
+                    <Form className="d-flex mx-auto w-100 px-0 px-lg-5">
                         <Form.Control
                             type="search"
                             placeholder="Search"
