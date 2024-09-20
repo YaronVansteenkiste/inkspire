@@ -1,17 +1,18 @@
 import React from "react";
-import '../data/data.js'
-import PostCard from "./PostCard.jsx";
-import {TRENDING_DATA} from "../data/data.js";
 
 import {Container, Row} from 'react-bootstrap';
 
-function Trending() {
+import PostCard from "./PostCard.jsx";
+
+import {YOUR_WORKS_DATA} from "../data/data.js";
+
+function YourWorks() {
     return (
         <div>
-            <h1>Trending</h1>
+            <h2>Your Works</h2>
             <Container>
                 <Row>
-                    {TRENDING_DATA.map(img => (
+                    {YOUR_WORKS_DATA.map(img => (
                         <PostCard post={img}/>
                     ))}
                 </Row>
@@ -20,4 +21,4 @@ function Trending() {
     );
 }
 
-export default Trending;
+export default YourWorks;
