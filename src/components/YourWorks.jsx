@@ -6,7 +6,6 @@ import PostCard from "./PostCard.jsx";
 
 function YourWorks(props) {
     const {yourWorksData} = props;
-    console.log(yourWorksData);
 
     return (
         <div>

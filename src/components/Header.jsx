@@ -14,8 +14,8 @@ function Header() {
                         style={{maxHeight: '100px'}}
                         navbarScroll
                     >
-                        <NavLink to="/" exact activeClassName="active" className="nav-link">Explore</NavLink>
-                        <NavLink to="/collab" activeClassName="active" className="nav-link">Collab</NavLink>
+                        <NavLink to="/"  className="nav-link">Explore</NavLink>
+                        <NavLink to="/collab" className="nav-link">Collab</NavLink>
                     </Nav>
                     <Form className="d-flex mx-auto w-100 px-0 px-lg-5">
                         <Form.Control
