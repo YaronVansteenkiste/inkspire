@@ -2,7 +2,6 @@ import React from "react";
 import '../data/data.js'
 import PostCard from "./PostCard.jsx";
 import {TRENDING_DATA} from "../data/data.js";
-
 import {Container, Row} from 'react-bootstrap';
 
 function Trending() {

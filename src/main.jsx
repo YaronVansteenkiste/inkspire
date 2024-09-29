@@ -1,10 +1,34 @@
-import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import {Collab} from "./pages/Collab.jsx";
+
+const Layout = () => {
+    return (
+        <div>
+            <Header />
+            <Outlet />
+            <Footer />
+        </div>
+    )
+}
+
+
+const router = createBrowserRouter([{
+    path: '/',
+    element: <Layout />,
+    children: [{
+        path: '/',
+        element: <App />
+    }, {
+        path: '/collab',
+        element: <Collab />
+    }]
+}])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <RouterProvider router={router} />
 )
