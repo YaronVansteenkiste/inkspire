@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Col} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 function PostCard(props) {
     const { post } = props;
@@ -9,7 +10,9 @@ function PostCard(props) {
         <figure className="post-image"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}>
-            <img src={post.url} alt={post.title}/>
+            <Link to={`/post/${post.id}`}>
+                <img src={post.url} alt={post.title}/>
+            </Link>
             {isHovered && (
                 <figcaption>
                     <p className="fw-bold">{post.title}</p>

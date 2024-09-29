@@ -3,19 +3,15 @@ import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/scss/custom.scss'
 import './App.css'
-import Trending from "./components/Trending.jsx";
-import YourWorks from "./components/YourWorks.jsx";
+import {HomePage} from "./pages/HomePage.jsx";
 
 
-function App() {
-  const [count, setCount] = useState(0)
-  const arr = [1, 24, 52, 23];
-
+function App(props) {
+  const {images} = props;
 
   return (
     <div>
-        <Trending />
-        <YourWorks />
+        <HomePage images={images}/>
     </div>
   )
 }

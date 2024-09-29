@@ -4,16 +4,17 @@ import {Container, Row} from 'react-bootstrap';
 
 import PostCard from "./PostCard.jsx";
 
-import {YOUR_WORKS_DATA} from "../data/data.js";
+function YourWorks(props) {
+    const {yourWorksData} = props;
+    console.log(yourWorksData);
 
-function YourWorks() {
     return (
         <div>
             <h2>Your Works</h2>
             <Container>
                 <Row>
-                    {YOUR_WORKS_DATA.map(img => (
-                        <PostCard post={img}/>
+                    {yourWorksData.map(img => (
+                        <PostCard key={img.id} post={img}/>
                     ))}
                 </Row>
             </Container>

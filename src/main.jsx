@@ -5,13 +5,15 @@ import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import {Collab} from "./pages/Collab.jsx";
+import {PictureDetails} from "./pages/PictureDetails.jsx";
+import {IMAGES_DATA} from "./data/data.js";
 
 const Layout = () => {
     return (
         <div>
-            <Header />
-            <Outlet />
-            <Footer />
+            <Header/>
+            <Outlet/>
+            <Footer/>
         </div>
     )
 }
@@ -19,16 +21,20 @@ const Layout = () => {
 
 const router = createBrowserRouter([{
     path: '/',
-    element: <Layout />,
+    element: <Layout/>,
     children: [{
         path: '/',
-        element: <App />
+        element: <App images={IMAGES_DATA}/>
     }, {
         path: '/collab',
-        element: <Collab />
-    }]
+        element: <Collab/>
+    },
+        {
+            path: '/post/:id',
+            element: <PictureDetails />
+        }]
 }])
 
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+    <RouterProvider router={router}/>
 )

@@ -10,7 +10,7 @@ function Footer() {
                 <li className="nav-item"><a href="#" className="nav-link px-2 text-light">Register</a></li>
                 <li className="nav-item"><a href="#" className="nav-link px-2 text-light">Login</a></li>
             </ul>
-            <p class="text-center text-light">© 2024 YaronVansteenkiste</p>
+            <p className="text-center text-light">© 2024 YaronVansteenkiste</p>
         </footer>
     )
 }

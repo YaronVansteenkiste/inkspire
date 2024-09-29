@@ -6,7 +6,7 @@ function Header() {
     return (
         <Navbar expand="lg" className="bg-dark navbar-dark border-bottom border-light-subtle">
             <Container fluid>
-                <Navbar.Brand href="#">Inkspire</Navbar.Brand>
+                <Navbar.Brand href="/">Inkspire</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll" className="justify-content-between">
                     <Nav
