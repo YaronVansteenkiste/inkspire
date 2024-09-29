@@ -6,8 +6,8 @@ function FilterBar() {
     return (
         <Row className="mb-3">
             <Col md={12}>
-                <Form inline>
-                    <Form.Group className="mb-2 mr-2">
+                <Form className="row">
+                    <Form.Group className="mx-2 col-4">
                         <Form.Label>Category</Form.Label>
                         <FormControl as="select">
                             <option>All</option>
@@ -16,7 +16,7 @@ function FilterBar() {
                             <option>Travel</option>
                         </FormControl>
                     </Form.Group>
-                    <Form.Group className="mb-2 mr-2">
+                    <Form.Group className="mx-2 col-4">
                         <Form.Label>Sort By</Form.Label>
                         <FormControl as="select">
                             <option>Newest</option>
@@ -24,7 +24,7 @@ function FilterBar() {
                             <option>Most Liked</option>
                         </FormControl>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button className="mx-2 col-3 h-25 my-auto" variant="primary" type="submit">
                         Filter
                     </Button>
                 </Form>
