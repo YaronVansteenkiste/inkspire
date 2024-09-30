@@ -12,6 +12,7 @@ export function PictureDetails(props) {
             <Row className="justify-content-md-center">
                 <Col md={12}>
                     <h1 className="text-center">{image.title}</h1>
+                    <p className="text-center">published on {image.publishDate}</p>
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
@@ -23,7 +24,7 @@ export function PictureDetails(props) {
                 <Col md={12}>
                     <Card>
                         <Card.Header>
-                            <Card.Title className="text-center">Author: {image.author}</Card.Title>
+                            <Card.Title className="text-center">Author: {image.author} </Card.Title>
                         </Card.Header>
                         <Card.Body>
                             <Card.Text className="text-center">{image.description}</Card.Text>

@@ -5,7 +5,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal1.jpg",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 50
+        likes: 50,
+        published: true,
+        publishDate: "01-01-2023"
     },
     {
         id: 2,
@@ -13,7 +15,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal2.jpg",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 30
+        likes: 30,
+        published: true,
+        publishDate: "02-01-2023"
     },
     {
         id: 3,
@@ -21,7 +25,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal3.jpg",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 70
+        likes: 70,
+        published: true,
+        publishDate: "03-01-2023"
     },
     {
         id: 4,
@@ -29,7 +35,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal4.jpg",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 20
+        likes: 20,
+        published: true,
+        publishDate: "04-01-2023"
     },
     {
         id: 5,
@@ -37,7 +45,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal5.jpg",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 90
+        likes: 90,
+        published: true,
+        publishDate: "05-01-2023"
     },
     {
         id: 6,
@@ -45,7 +55,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal6.png",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 40
+        likes: 40,
+        published: true,
+        publishDate: "06-01-2023"
     },
     {
         id: 7,
@@ -53,7 +65,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal7.png",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 60
+        likes: 60,
+        published: true,
+        publishDate: "07-01-2023"
     },
     {
         id: 8,
@@ -61,7 +75,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal8.png",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 80
+        likes: 80,
+        published: true,
+        publishDate: "08-01-2023"
     },
     {
         id: 9,
@@ -69,7 +85,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal9.png",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 10
+        likes: 10,
+        published: true,
+        publishDate: "09-01-2023"
     },
     {
         id: 10,
@@ -77,7 +95,9 @@ export const IMAGES_DATA = [
         url: "/images/charcoal10.png",
         author: "Yaron",
         description: "This is a test picture",
-        likes: 100
+        likes: 100,
+        published: true,
+        publishDate: "10-01-2023"
     },
     {
         id: 11,
@@ -85,7 +105,9 @@ export const IMAGES_DATA = [
         url: "/images/painting.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 55
+        likes: 55,
+        published: true,
+        publishDate: "11-01-2023"
     },
     {
         id: 12,
@@ -93,7 +115,9 @@ export const IMAGES_DATA = [
         url: "/images/painting2.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 65
+        likes: 65,
+        published: true,
+        publishDate: "12-01-2023"
     },
     {
         id: 13,
@@ -101,7 +125,9 @@ export const IMAGES_DATA = [
         url: "/images/painting3.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 75
+        likes: 75,
+        published: true,
+        publishDate: "13-01-2023"
     },
     {
         id: 14,
@@ -109,7 +135,9 @@ export const IMAGES_DATA = [
         url: "/images/painting4.png",
         author: "Test User",
         description: "This is a test picture",
-        likes: 85
+        likes: 85,
+        published: true,
+        publishDate: "14-01-2023"
     },
     {
         id: 15,
@@ -117,7 +145,9 @@ export const IMAGES_DATA = [
         url: "/images/painting5.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 95
+        likes: 95,
+        published: true,
+        publishDate: "15-01-2023"
     },
     {
         id: 16,
@@ -125,7 +155,9 @@ export const IMAGES_DATA = [
         url: "/images/painting6.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 25
+        likes: 25,
+        published: true,
+        publishDate: "16-01-2023"
     },
     {
         id: 17,
@@ -133,7 +165,9 @@ export const IMAGES_DATA = [
         url: "/images/painting7.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 35
+        likes: 35,
+        published: true,
+        publishDate: "17-01-2023"
     },
     {
         id: 18,
@@ -141,7 +175,9 @@ export const IMAGES_DATA = [
         url: "/images/painting8.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 45
+        likes: 45,
+        published: true,
+        publishDate: "18-01-2023"
     },
     {
         id: 19,
@@ -149,7 +185,9 @@ export const IMAGES_DATA = [
         url: "/images/painting9.png",
         author: "Test User",
         description: "This is a test picture",
-        likes: 15
+        likes: 15,
+        published: true,
+        publishDate: "19-01-2023"
     },
     {
         id: 20,
@@ -157,7 +195,9 @@ export const IMAGES_DATA = [
         url: "/images/painting10.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 5
+        likes: 5,
+        published: true,
+        publishDate: "20-01-2023"
     },
     {
         id: 21,
@@ -165,7 +205,9 @@ export const IMAGES_DATA = [
         url: "/images/painting11.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 95
+        likes: 95,
+        published: true,
+        publishDate: "21-01-2023"
     },
     {
         id: 22,
@@ -173,7 +215,9 @@ export const IMAGES_DATA = [
         url: "/images/painting12.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 85
+        likes: 85,
+        published: true,
+        publishDate: "22-01-2023"
     },
     {
         id: 23,
@@ -181,7 +225,9 @@ export const IMAGES_DATA = [
         url: "/images/painting13.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 75
+        likes: 75,
+        published: true,
+        publishDate: "23-01-2023"
     },
     {
         id: 24,
@@ -189,6 +235,8 @@ export const IMAGES_DATA = [
         url: "/images/painting14.jpg",
         author: "Test User",
         description: "This is a test picture",
-        likes: 65
+        likes: 65,
+        published: true,
+        publishDate: "24-01-2023"
     }
 ];
