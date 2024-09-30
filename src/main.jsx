@@ -4,7 +4,7 @@ import './index.css'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import {Collab} from "./pages/Collab.jsx";
+import {CollabPage} from "./pages/CollabPage.jsx";
 import {PictureDetails} from "./pages/PictureDetails.jsx";
 import {IMAGES_DATA} from "./data/data.js";
 import {AnimatedBackground} from "./components/AnimatedBackground.jsx";
@@ -29,7 +29,7 @@ const router = createBrowserRouter([{
         element: <App images={IMAGES_DATA}/>
     }, {
         path: '/collab',
-        element: <Collab/>
+        element: <CollabPage/>
     },
         {
             path: '/post/:id',
