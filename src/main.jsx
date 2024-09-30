@@ -36,8 +36,8 @@ const router = createBrowserRouter([{
             path: '/post/:id',
             element: <PictureDetails images={IMAGES_DATA}/>
         }, {
-            path: '/search/:searchResults',
-            element: <SearchResultsPage />
+            path: '/search/:searchQuery',
+            element: <SearchResultsPage images={IMAGES_DATA}/>
         },
 
     ]
