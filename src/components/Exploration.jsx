@@ -6,11 +6,12 @@ import {FilterBar} from "./FilterBar.jsx";
 
 
 export function Exploration(props) {
-    const {images} = props;
+    const {images, onFilterChange} = props;
+
     return (
         <div>
             <h1>Exploration</h1>
-            <FilterBar/>
+            <FilterBar onFilterChange={onFilterChange}/>
             <Container>
                 <Row>
                     {images.map((img) => (
