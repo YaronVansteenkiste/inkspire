@@ -14,12 +14,15 @@ export function HomePage(props) {
 
     const handleFilterChange = criteria => setFilterCriteria(criteria);
 
-    const sortedImages = [...images].sort((a, b) => {
-        if (filterCriteria.sortBy === "Most Popular") return b.likes - a.likes;
-        if (filterCriteria.sortBy === "Newest") return new Date(b.publishDate) - new Date(a.publishDate);
-        if (filterCriteria.sortBy === "Oldest") return new Date(a.publishDate) - new Date(b.publishDate);
-        return 0;
-    });
+    const sortedImages = [...images]
+        .filter(img => filterCriteria.category === "All" || img.category === filterCriteria.category)
+        .sort((a, b) => {
+            if (filterCriteria.sortBy === "None") return Math.random() - 0.5;
+            if (filterCriteria.sortBy === "Most Popular") return b.likes - a.likes;
+            if (filterCriteria.sortBy === "Newest") return new Date(b.publishDate) - new Date(a.publishDate);
+            if (filterCriteria.sortBy === "Oldest") return new Date(a.publishDate) - new Date(b.publishDate);
+            return 0;
+        });
 
     return (
         <Container className="mt-5">

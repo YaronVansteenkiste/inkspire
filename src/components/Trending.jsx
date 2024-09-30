@@ -28,8 +28,11 @@ export default function Trending(props) {
             <Row>
                 <Col xs={12} md={8}>
                     <h3>Discover Today's{" "}</h3>
-                    <h1><ReactTyped className="text-decoration-underline text-primary" strings={["Greatest Artworks!"]}
-                                    typeSpeed={100} loop/>
+                    <h1 className="text-decoration-underline text-primary">Greatest <ReactTyped
+                                    strings={[" Artworks!", " Masterpieces!", " Creations!", " Designs!"]}
+                                    typeSpeed={40}
+                                    backSpeed={50}
+                                    loop/>
                     </h1>
                 </Col>
                 <Col xs={7} md={4}>

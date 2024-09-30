@@ -7,7 +7,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 50,
         published: true,
-        publishDate: "01-01-2023"
+        publishDate: "01-01-2023",
+        category: "Charcoal"
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 30,
         published: true,
-        publishDate: "02-01-2023"
+        publishDate: "02-01-2023",
+        category: "Charcoal"
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 70,
         published: true,
-        publishDate: "03-01-2023"
+        publishDate: "03-01-2023",
+        category: "Charcoal"
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 20,
         published: true,
-        publishDate: "04-01-2023"
+        publishDate: "04-01-2023",
+        category: "Charcoal"
     },
     {
         id: 5,
@@ -47,7 +51,9 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 90,
         published: true,
-        publishDate: "05-01-2023"
+        publishDate: "05-01-2023",
+        category: "Charcoal"
+
     },
     {
         id: 6,
@@ -57,7 +63,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 40,
         published: true,
-        publishDate: "06-01-2023"
+        publishDate: "06-01-2023",
+        category: "Charcoal"
     },
     {
         id: 7,
@@ -67,7 +74,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 60,
         published: true,
-        publishDate: "07-01-2023"
+        publishDate: "07-01-2023",
+        category: "Charcoal"
     },
     {
         id: 8,
@@ -77,7 +85,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 80,
         published: true,
-        publishDate: "08-01-2023"
+        publishDate: "08-01-2023",
+        category: "Charcoal"
     },
     {
         id: 9,
@@ -87,7 +96,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 10,
         published: true,
-        publishDate: "09-01-2023"
+        publishDate: "09-01-2023",
+        category: "Charcoal"
     },
     {
         id: 10,
@@ -97,7 +107,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 100,
         published: true,
-        publishDate: "10-01-2023"
+        publishDate: "10-01-2023",
+        category: "Charcoal"
     },
     {
         id: 11,
@@ -107,7 +118,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 55,
         published: true,
-        publishDate: "11-01-2023"
+        publishDate: "11-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 12,
@@ -117,7 +129,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 65,
         published: true,
-        publishDate: "12-01-2023"
+        publishDate: "12-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 13,
@@ -127,7 +140,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 75,
         published: true,
-        publishDate: "13-01-2023"
+        publishDate: "13-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 14,
@@ -137,7 +151,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 85,
         published: true,
-        publishDate: "14-01-2023"
+        publishDate: "14-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 15,
@@ -147,7 +162,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 95,
         published: true,
-        publishDate: "15-01-2023"
+        publishDate: "15-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 16,
@@ -157,7 +173,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 25,
         published: true,
-        publishDate: "16-01-2023"
+        publishDate: "16-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 17,
@@ -167,7 +184,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 35,
         published: true,
-        publishDate: "17-01-2023"
+        publishDate: "17-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 18,
@@ -177,7 +195,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 45,
         published: true,
-        publishDate: "18-01-2023"
+        publishDate: "18-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 19,
@@ -187,7 +206,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 15,
         published: true,
-        publishDate: "19-01-2023"
+        publishDate: "19-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 20,
@@ -197,7 +217,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 5,
         published: true,
-        publishDate: "20-01-2023"
+        publishDate: "20-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 21,
@@ -207,7 +228,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 95,
         published: true,
-        publishDate: "21-01-2023"
+        publishDate: "21-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 22,
@@ -217,7 +239,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 85,
         published: true,
-        publishDate: "22-01-2023"
+        publishDate: "22-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 23,
@@ -227,7 +250,8 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 75,
         published: true,
-        publishDate: "23-01-2023"
+        publishDate: "23-01-2023",
+        category: "Oil Painting"
     },
     {
         id: 24,
@@ -237,6 +261,7 @@ export const IMAGES_DATA = [
         description: "This is a test picture",
         likes: 65,
         published: true,
-        publishDate: "24-01-2023"
+        publishDate: "24-01-2023",
+        category: "Oil Painting"
     }
 ];
