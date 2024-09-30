@@ -1,6 +1,6 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { Button, Col, Row, Container, Card, Form } from 'react-bootstrap';
+import {useParams} from "react-router-dom";
+import {Button, Card, Col, Container, Form, Row} from 'react-bootstrap';
 
 export function PictureDetails(props) {
     const { id } = useParams();

@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Button, Form, ListGroup } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect, useRef, useState} from "react";
+import {Button, Form, ListGroup} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 export function SearchBar(props) {
     const [search, setSearch] = useState("");

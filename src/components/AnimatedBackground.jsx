@@ -1,5 +1,5 @@
 import React from "react";
-import { useSprings, animated } from "@react-spring/web";
+import {animated, useSprings} from "@react-spring/web";
 
 
 export const AnimatedBackground = () => {

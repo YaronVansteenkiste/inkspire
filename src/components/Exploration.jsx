@@ -1,8 +1,7 @@
 import React from "react";
-import {Container, Row, Col, Form, FormControl, Button} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import PostCard from "./PostCard.jsx";
 import {FilterBar} from "./FilterBar.jsx";
-
 
 
 export function Exploration(props) {

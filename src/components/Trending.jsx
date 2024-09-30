@@ -1,9 +1,8 @@
 import React from "react";
-import { Carousel, Col, Container, Row, Card } from 'react-bootstrap';
+import {Carousel, Col, Container, Row} from 'react-bootstrap';
 import PostCard from "./PostCard.jsx";
 
-import { ReactTyped } from "react-typed";
-
+import {ReactTyped} from "react-typed";
 
 
 function TrendingCarousel(props) {
