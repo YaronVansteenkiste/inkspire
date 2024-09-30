@@ -2,6 +2,36 @@ import React, { useState, useRef } from "react";
 import { ReactSketchCanvas } from 'react-sketch-canvas';
 import { Col, Button, ButtonGroup, Form } from 'react-bootstrap';
 
+function CollabToolbar(props) {
+    const {color, brushSize, backgroundColor, handleClearCanvas, handleColorChange, handleBrushSizeChange, handleBackgroundColorChange } = props;
+
+    return (
+        <ButtonGroup className="mt-3">
+            <Button variant="danger" onClick={handleClearCanvas}>Clear Canvas</Button>
+            <Form.Control
+                type="color"
+                value={color}
+                onChange={handleColorChange}
+                className="ms-2"
+            />
+            <Form.Control
+                type="number"
+                value={brushSize}
+                onChange={handleBrushSizeChange}
+                className="ms-2"
+                min="1"
+                max="20"
+            />
+            <Form.Control
+                type="color"
+                value={backgroundColor}
+                onChange={handleBackgroundColorChange}
+                className="ms-2"
+            />
+        </ButtonGroup>
+    );
+}
+
 export const CollabPanel = () => {
     const [color, setColor] = useState("red");
     const [brushSize, setBrushSize] = useState(4);
@@ -28,6 +58,15 @@ export const CollabPanel = () => {
 
     return (
         <Col s={12}>
+            <CollabToolbar
+                color={color}
+                brushSize={brushSize}
+                backgroundColor={backgroundColor}
+                handleClearCanvas={handleClearCanvas}
+                handleColorChange={handleColorChange}
+                handleBrushSizeChange={handleBrushSizeChange}
+                handleBackgroundColorChange={handleBackgroundColorChange}
+            />
             <ReactSketchCanvas
                 ref={canvasRef}
                 width='100%'
@@ -36,29 +75,7 @@ export const CollabPanel = () => {
                 strokeColor={color}
                 canvasColor={backgroundColor}
             />
-            <ButtonGroup className="mt-3">
-                <Button variant="danger" onClick={handleClearCanvas}>Clear Canvas</Button>
-                <Form.Control
-                    type="color"
-                    value={color}
-                    onChange={handleColorChange}
-                    className="ms-2"
-                />
-                <Form.Control
-                    type="number"
-                    value={brushSize}
-                    onChange={handleBrushSizeChange}
-                    className="ms-2"
-                    min="1"
-                    max="20"
-                />
-                <Form.Control
-                    type="color"
-                    value={backgroundColor}
-                    onChange={handleBackgroundColorChange}
-                    className="ms-2"
-                />
-            </ButtonGroup>
+
         </Col>
     );
 };
