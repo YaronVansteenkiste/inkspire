@@ -254,3 +254,20 @@ export const IMAGES_DATA = [
         category: "Oil Painting"
     }
 ];
+
+
+export const COLLAB_DATA = [
+    {
+        id: 1,
+        title: "Collab 1",
+        url: "/images/collab1.jpg",
+    }, {
+        id: 2,
+        title: "Collab 2",
+        url: "/images/collab1.jpg",
+    }, {
+        id: 3,
+        title: "Collab 3",
+        url: "/images/collab1.jpg",
+    }
+]
