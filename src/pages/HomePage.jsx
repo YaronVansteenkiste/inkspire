@@ -7,11 +7,12 @@ import {Container} from "react-bootstrap";
 
 export function HomePage(props) {
     const {images} = props;
+    const yourWorks = images.filter((img) => img.author === "Yaron");
 
     return (
         <Container className="mt-5">
             <Trending trendingData={images}/>
-            <YourWorks yourWorksData={images}/>
+            <YourWorks yourWorksData={yourWorks}/>
             <Exploration images={images}/>
         </Container>
     )

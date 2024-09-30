@@ -7,10 +7,12 @@ import Footer from "./components/Footer.jsx";
 import {Collab} from "./pages/Collab.jsx";
 import {PictureDetails} from "./pages/PictureDetails.jsx";
 import {IMAGES_DATA} from "./data/data.js";
+import {AnimatedBackground} from "./components/AnimatedBackground.jsx";
 
 const Layout = () => {
     return (
         <div>
+            <AnimatedBackground/>
             <Header/>
             <Outlet/>
             <Footer/>

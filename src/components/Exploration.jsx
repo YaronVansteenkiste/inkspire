@@ -1,12 +1,12 @@
 import React from "react";
-import {Container, Row, Col, Form, FormControl, Button} from "react-bootstrap";
+import { Button, Col, Container, Form, FormControl, Row } from "react-bootstrap";
 import PostCard from "./PostCard.jsx";
 
 function FilterBar() {
     return (
         <Row className="mb-3">
             <Col md={12}>
-                <Form className="row">
+                <Form className="row align-items-end">
                     <Form.Group className="mx-2 col-4">
                         <Form.Label>Category</Form.Label>
                         <FormControl as="select">
@@ -24,7 +24,7 @@ function FilterBar() {
                             <option>Most Liked</option>
                         </FormControl>
                     </Form.Group>
-                    <Button className="mx-2 col-3 h-25 my-auto" variant="primary" type="submit">
+                    <Button className="mx-2 col-3" variant="primary" type="submit">
                         Filter
                     </Button>
                 </Form>
@@ -34,16 +34,17 @@ function FilterBar() {
 }
 
 export function Exploration(props) {
-    const {images} = props;
+    const { images } = props;
+    const imagesRandomOrder = images.sort(() => Math.random() - 0.5);
     return (
         <div>
             <h1>Exploration</h1>
-            <FilterBar/>
+            <FilterBar />
             <Container>
                 <Row>
-                    {images.map((img) => (
+                    {imagesRandomOrder.map((img) => (
                         <Col xs={12} sm={6} md={4} lg={3} xl={2} key={img.id}>
-                            <PostCard post={img}/>
+                            <PostCard post={img} />
                         </Col>
                     ))}
                 </Row>

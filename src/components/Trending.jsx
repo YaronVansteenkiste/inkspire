@@ -2,6 +2,10 @@ import React from "react";
 import { Carousel, Col, Container, Row, Card } from 'react-bootstrap';
 import PostCard from "./PostCard.jsx";
 
+import { ReactTyped } from "react-typed";
+
+
+
 function TrendingCarousel(props) {
     const { trendingData } = props;
 
@@ -18,13 +22,17 @@ function TrendingCarousel(props) {
 
 export default function Trending(props) {
     const { trendingData } = props;
-    const trendingDataSliced = trendingData.slice(0, 4);
+    const trendingDataRandomized = trendingData.sort(() => Math.random() - 0.5);
+    const trendingDataSliced = trendingDataRandomized.slice(0, 4);
 
     return (
         <Container>
             <Row>
                 <Col xs={12} md={8}>
-                    <h1>Check out what's trending today!</h1>
+                    <h3>Discover Today's{" "}</h3>
+                    <h1><ReactTyped className="text-decoration-underline text-primary" strings={["Greatest Artworks!"]}
+                                    typeSpeed={100} loop/>
+                    </h1>
                 </Col>
                 <Col xs={7} md={4}>
                     <TrendingCarousel trendingData={trendingDataSliced} />

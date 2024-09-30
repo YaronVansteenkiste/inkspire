@@ -1,26 +1,28 @@
 import React from "react";
-
-import {Button, Container, Row} from 'react-bootstrap';
-
+import { Button, Container, Row } from 'react-bootstrap';
 import PostCard from "./PostCard.jsx";
 
 function YourWorks(props) {
-    const {yourWorksData} = props;
-    const yourWorksDataSliced = yourWorksData.slice(0, 4);
+    const [show, setShow] = React.useState(false);
+    const { yourWorksData } = props;
 
     return (
         <div>
-            <div className={"d-flex justify-content-between"}>
-                <h1>Your Works</h1>
-                <Button variant="outline-primary" className="mb-3">View all </Button>
+            <div >
+                <h1 className="d-inline me-2">Your Works</h1>
+                <Button className="d-inline" variant="outline-primary" className="mb-3" onClick={() => setShow(!show)}>
+                    {show ? "Close" : "Open"}
+                </Button>
             </div>
-            <Container>
-                <Row>
-                    {yourWorksDataSliced.map(img => (
-                        <PostCard key={img.id} post={img}/>
-                    ))}
-                </Row>
-            </Container>
+            {show && (
+                <Container>
+                    <Row>
+                        {yourWorksData.map(img => (
+                            <PostCard key={img.id} post={img} />
+                        ))}
+                    </Row>
+                </Container>
+            )}
         </div>
     );
 }
