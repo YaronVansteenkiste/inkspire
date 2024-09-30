@@ -26,14 +26,14 @@ export function PictureDetails(props) {
                     </Figure>
                 </Col>
                 <Col md={6}>
-                    <Card>
+                    <Card className="h-100">
                         <Card.Header>
                             <Card.Title className="text-center">Author: {image.author}</Card.Title>
                         </Card.Header>
                         <Card.Body>
                             <Card.Text>{image.description}</Card.Text>
                             <div className="d-flex justify-content-center">
-                                <Button variant="outline-warning" size="sm" className="me-4" onClick={() => handleLikes()}>❤️</Button>
+                                <Button variant="outline-secondary" size="sm" className="me-4">❤️</Button>
                                 <h4>{image.likes}</h4>
                             </div>
                         </Card.Body>
