@@ -22,8 +22,6 @@ function TrendingCarousel(props) {
 
 export default function Trending(props) {
     const { trendingData } = props;
-    const trendingDataRandomized = trendingData.sort(() => Math.random() - 0.5);
-    const trendingDataSliced = trendingDataRandomized.slice(0, 4);
 
     return (
         <Container>
@@ -35,7 +33,7 @@ export default function Trending(props) {
                     </h1>
                 </Col>
                 <Col xs={7} md={4}>
-                    <TrendingCarousel trendingData={trendingDataSliced} />
+                    <TrendingCarousel trendingData={trendingData} />
                 </Col>
             </Row>
         </Container>
