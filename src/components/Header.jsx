@@ -4,7 +4,9 @@ import {NavLink} from 'react-router-dom';
 import {SearchBar} from "./SearchBar.jsx";
 
 
-function Header() {
+function Header(props) {
+    const {images} = props;
+    const suggestions = images.map(image => image.title);
     return (
         <Navbar expand="lg" className="navbar-dark border-bottom border-light-subtle">
             <Container fluid>
@@ -19,7 +21,7 @@ function Header() {
                         <NavLink to="/"  className="nav-link">Explore</NavLink>
                         <NavLink to="/collab" className="nav-link">Collab</NavLink>
                     </Nav>
-                   <SearchBar/>
+                   <SearchBar suggestions={suggestions}/>
                     <Nav className="d-block d-lg-flex ">
                         <Nav.Link href="#register"
                                   className="bg-secondary text-light rounded mx-0 mx-lg-1 mt-2 mt-lg-0">Register</Nav.Link>

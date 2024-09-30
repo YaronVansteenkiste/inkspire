@@ -1,7 +1,7 @@
 export const IMAGES_DATA = [
     {
         id: 1,
-        title: "Picture 1",
+        title: "Skull portrait in charcoal",
         url: "/images/charcoal1.jpg",
         author: "Yaron",
         description: "This is a test picture",
@@ -12,7 +12,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 2,
-        title: "Picture 2",
+        title: "Jason Mamoa portrait in charcoal",
         url: "/images/charcoal2.jpg",
         author: "Yaron",
         description: "This is a test picture",
@@ -23,7 +23,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 3,
-        title: "Picture 3",
+        title: "Facial portrait in the rain, made in charcoal",
         url: "/images/charcoal3.jpg",
         author: "Yaron",
         description: "This is a test picture",
@@ -34,7 +34,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 4,
-        title: "Picture 4",
+        title: "Facial portrait made in charcoal",
         url: "/images/charcoal4.jpg",
         author: "Yaron",
         description: "This is a test picture",
@@ -45,7 +45,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 5,
-        title: "Picture 5",
+        title: "Dramatic portrait in charcoal",
         url: "/images/charcoal5.jpg",
         author: "Yaron",
         description: "This is a test picture",
@@ -57,7 +57,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 6,
-        title: "Picture 6",
+        title: "Experimental charcoal portrait",
         url: "/images/charcoal6.png",
         author: "Yaron",
         description: "This is a test picture",
@@ -68,7 +68,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 7,
-        title: "Picture 7",
+        title: "Screaming portrait",
         url: "/images/charcoal7.png",
         author: "Yaron",
         description: "This is a test picture",
@@ -79,7 +79,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 8,
-        title: "Picture 8",
+        title: "Facial darkness",
         url: "/images/charcoal8.png",
         author: "Yaron",
         description: "This is a test picture",
@@ -90,7 +90,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 9,
-        title: "Picture 9",
+        title: "Facial closeup",
         url: "/images/charcoal9.png",
         author: "Yaron",
         description: "This is a test picture",
@@ -101,7 +101,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 10,
-        title: "Picture 10",
+        title: "Shocking expressions",
         url: "/images/charcoal10.png",
         author: "Yaron",
         description: "This is a test picture",
@@ -112,7 +112,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 11,
-        title: "Flower Painting",
+        title: "Flower hat Painting",
         url: "/images/painting.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -123,7 +123,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 12,
-        title: "Flower Painting",
+        title: "Roman Painting",
         url: "/images/painting2.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -134,7 +134,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 13,
-        title: "Flower Painting",
+        title: "Experimental Painting",
         url: "/images/painting3.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -145,7 +145,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 14,
-        title: "Flower Painting",
+        title: "Colorful Expressions",
         url: "/images/painting4.png",
         author: "Test User",
         description: "This is a test picture",
@@ -156,7 +156,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 15,
-        title: "Flower Painting",
+        title: "Beautiful smile Painting",
         url: "/images/painting5.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -167,7 +167,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 16,
-        title: "Flower Painting",
+        title: "Colorful Portrait Painting",
         url: "/images/painting6.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -178,7 +178,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 17,
-        title: "Flower Painting",
+        title: "Heaven painting",
         url: "/images/painting7.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -189,7 +189,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 18,
-        title: "Flower Painting",
+        title: "Painting of the eyes",
         url: "/images/painting8.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -200,7 +200,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 19,
-        title: "Flower Painting",
+        title: "Wandering ship",
         url: "/images/painting9.png",
         author: "Test User",
         description: "This is a test picture",
@@ -211,7 +211,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 20,
-        title: "Flower Painting",
+        title: "Interpretation of femininity",
         url: "/images/painting10.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -222,7 +222,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 21,
-        title: "Flower Painting",
+        title: "Painting Under Water",
         url: "/images/painting11.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -233,7 +233,7 @@ export const IMAGES_DATA = [
     },
     {
         id: 22,
-        title: "Flower Painting",
+        title: "Hand Anatomy Painting",
         url: "/images/painting12.jpg",
         author: "Test User",
         description: "This is a test picture",
@@ -244,24 +244,13 @@ export const IMAGES_DATA = [
     },
     {
         id: 23,
-        title: "Flower Painting",
+        title: "Facial Emptiness Painting",
         url: "/images/painting13.jpg",
         author: "Test User",
         description: "This is a test picture",
         likes: 75,
         published: true,
         publishDate: "23-01-2023",
-        category: "Oil Painting"
-    },
-    {
-        id: 24,
-        title: "Flower Painting",
-        url: "/images/painting14.jpg",
-        author: "Test User",
-        description: "This is a test picture",
-        likes: 65,
-        published: true,
-        publishDate: "24-01-2023",
         category: "Oil Painting"
     }
 ];

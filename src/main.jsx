@@ -8,12 +8,13 @@ import {CollabPage} from "./pages/CollabPage.jsx";
 import {PictureDetails} from "./pages/PictureDetails.jsx";
 import {IMAGES_DATA} from "./data/data.js";
 import {AnimatedBackground} from "./components/AnimatedBackground.jsx";
+import {SearchResultsPage} from "./pages/SearchResultsPage.jsx";
 
 const Layout = () => {
     return (
         <div>
             <AnimatedBackground/>
-            <Header/>
+            <Header images={IMAGES_DATA}/>
             <Outlet/>
             <Footer/>
         </div>
@@ -34,7 +35,12 @@ const router = createBrowserRouter([{
         {
             path: '/post/:id',
             element: <PictureDetails images={IMAGES_DATA}/>
-        }]
+        }, {
+            path: '/search/:searchResults',
+            element: <SearchResultsPage />
+        },
+
+    ]
 }])
 
 createRoot(document.getElementById('root')).render(
