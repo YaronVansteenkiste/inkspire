@@ -1,7 +1,7 @@
 import {createRoot} from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
+import {HashRouter, Routes, Route, Outlet} from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import {CollabPage} from "./pages/CollabPage.jsx";
@@ -22,30 +22,16 @@ const Layout = () => {
     )
 }
 
-
-const router = createBrowserRouter([{
-    path: '/',
-    element: <Layout/>,
-    children: [{
-        path: '/',
-        element: <App images={IMAGES_DATA}/>
-    }, {
-        path: '/collab',
-        element: <CollabPage collaborations={COLLAB_DATA}/>
-    },
-        {
-            path: '/post/:id',
-            element: <PictureDetails images={IMAGES_DATA}/>
-        }, {
-            path: '/search/:searchQuery',
-            element: <SearchResultsPage images={IMAGES_DATA}/>
-        },{
-            path: '/collab/:id',
-            element: <CollabDetails collaborations={COLLAB_DATA}/>
-        },
-    ]
-}])
-
 createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router}/>
+    <HashRouter>
+        <Routes>
+            <Route path="/" element={<Layout />}>
+                <Route index element={<App images={IMAGES_DATA}/>} />
+                <Route path="collab" element={<CollabPage collaborations={COLLAB_DATA}/>} />
+                <Route path="post/:id" element={<PictureDetails images={IMAGES_DATA}/>} />
+                <Route path="search/:searchQuery" element={<SearchResultsPage images={IMAGES_DATA}/>} />
+                <Route path="collab/:id" element={<CollabDetails collaborations={COLLAB_DATA}/>} />
+            </Route>
+        </Routes>
+    </HashRouter>
 )
