@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {CollabPanel} from "../components/CollabPanel.jsx";
-import {Button, Card, Row} from "react-bootstrap";
-
+import {Card, Row} from "react-bootstrap";
+import {Link} from "react-router-dom"; // Import Link from react-router-dom
 
 export const CollabPage = (props) => {
     const {collaborations} = props;
@@ -12,7 +11,7 @@ export const CollabPage = (props) => {
                 <Card key={index}>
                     <Card.Title>{collab.title}</Card.Title>
                     <Card.Body>
-                        <a href={`/collab/${collab.id}`}> Details</a>
+                        <Link to={`/collab/${collab.id}`}>Details</Link>
                     </Card.Body>
                 </Card>
             )}
