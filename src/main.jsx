@@ -10,6 +10,8 @@ import {COLLAB_DATA, IMAGES_DATA} from "./data/data.js";
 import {AnimatedBackground} from "./components/AnimatedBackground.jsx";
 import {SearchResultsPage} from "./pages/SearchResultsPage.jsx";
 import {CollabDetails} from "./pages/CollabDetails.jsx";
+import {Login} from "./components/Login.jsx";
+import {HomePageDB} from "./pages/HomePageDB.jsx";
 
 const Layout = () => {
     return (
@@ -31,6 +33,8 @@ createRoot(document.getElementById('root')).render(
                 <Route path="post/:id" element={<PictureDetails images={IMAGES_DATA}/>} />
                 <Route path="search/:searchQuery" element={<SearchResultsPage images={IMAGES_DATA}/>} />
                 <Route path="collab/:id" element={<CollabDetails collaborations={COLLAB_DATA}/>} />
+                <Route path="login" element={<Login />} />
+                <Route path={"/db"} element={<HomePageDB />}/>
             </Route>
         </Routes>
     </HashRouter>

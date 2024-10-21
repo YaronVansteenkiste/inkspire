@@ -3,7 +3,9 @@ import { ReactSketchCanvas } from 'react-sketch-canvas';
 import { Col, Button, ButtonGroup, Form } from 'react-bootstrap';
 
 function CollabToolbar(props) {
-    const {color, brushSize, backgroundColor, handleClearCanvas, handleColorChange, handleBrushSizeChange, handleBackgroundColorChange } = props;
+    const {color, brushSize, backgroundColor,
+        handleClearCanvas, handleColorChange, handleBrushSizeChange,
+        handleBackgroundColorChange, handleDownloadCanvas } = props;
 
     return (
         <ButtonGroup className="mt-3">
@@ -28,6 +30,7 @@ function CollabToolbar(props) {
                 onChange={handleBackgroundColorChange}
                 className="ms-2"
             />
+            <Button variant="primary" className="ms-2" onClick={handleDownloadCanvas}>Download</Button>
         </ButtonGroup>
     );
 }
@@ -56,6 +59,14 @@ export const CollabPanel = () => {
         canvasRef.current.fillCanvas(e.target.value);
     };
 
+    const handleDownloadCanvas = async () => {
+        const dataUrl = await canvasRef.current.exportImage("png");
+        const link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = "collaboration.png";
+        link.click();
+    };
+
     return (
         <Col s={12}>
             <CollabToolbar
@@ -66,6 +77,7 @@ export const CollabPanel = () => {
                 handleColorChange={handleColorChange}
                 handleBrushSizeChange={handleBrushSizeChange}
                 handleBackgroundColorChange={handleBackgroundColorChange}
+                handleDownloadCanvas={handleDownloadCanvas}
             />
             <ReactSketchCanvas
                 ref={canvasRef}
