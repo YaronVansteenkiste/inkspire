@@ -3,9 +3,11 @@ import Trending from "../components/Trending.jsx";
 import YourWorks from "../components/YourWorks.jsx";
 import {Exploration} from "../components/Exploration.jsx";
 import {Container} from "react-bootstrap";
+import {useImageContext} from "../context/ImageFromDbContext.jsx";
 
-export function HomePage(props) {
-    const { images } = props;
+export function HomePage() {
+    const { images } = useImageContext();
+
     const [filterCriteria, setFilterCriteria] = useState({ category: "All", sortBy: "None" });
 
     const yourWorks = images.filter(img => img.author === "Yaron");

@@ -1,11 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Button, Card, Col, Container, Figure, Form, Row } from 'react-bootstrap';
+import {useImageContext} from "../context/ImageFromDbContext.jsx";
 
-export function PictureDetails(props) {
+export function PictureDetails() {
     const { id } = useParams();
-    const { images } = props;
-    const image = images[id - 1];
+    console.log(id)
+    const { images } = useImageContext();
+
+    const image = images.find(images => images.id === (id));
+    console.log(image)
+
 
     return (
         <Container>
