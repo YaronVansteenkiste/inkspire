@@ -10,7 +10,7 @@ function YourWorks(props) {
         <div>
             <div >
                 <h1 className="d-inline me-2">Your Works</h1>
-                <Button className="d-inline" variant="outline-primary" className="mb-3" onClick={() => setShow(!show)}>
+                <Button className="d-inline mb-3" variant="outline-primary" onClick={() => setShow(!show)}>
                     {show ? "Close" : "Open"}
                 </Button>
             </div>
