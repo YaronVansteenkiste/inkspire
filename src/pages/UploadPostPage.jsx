@@ -3,7 +3,7 @@ import { handleImageUpload } from '../services/imageUploadService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-export function UploadImage() {
+export function UploadPostPage() {
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -82,7 +82,7 @@ export function UploadImage() {
             </form>
 
             <div
-                className={`toast position-fixed bottom-0 end-0 p-3 ${showToast ? 'show' : 'hide'}`}
+                className={`toast m-3 position-fixed bottom-0 end-0 p-3 ${showToast ? 'show' : 'hide'}`}
                 role="alert"
                 aria-live="assertive"
                 aria-atomic="true"
@@ -94,7 +94,7 @@ export function UploadImage() {
                     <strong className="me-auto">Upload Status</strong>
                     <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
-                <div className="toast-body">
+                <div className="toast-body bg-secondary">
                     Image uploaded successfully!
                 </div>
             </div>

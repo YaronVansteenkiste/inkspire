@@ -16,7 +16,8 @@ import {AnimatedBackground} from "./components/AnimatedBackground.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import {Providers} from "./components/Providers.jsx";
-import {UploadImage} from "./components/UploadImage.jsx";
+import {PictureDetailsDb} from "./pages/PictureDetailsDb.jsx";
+import {UploadPostPage} from "./pages/UploadPostPage.jsx";
 
 const Layout = () => {
     return (
@@ -46,7 +47,8 @@ function App() {
                         <Route path="collab/:id" element={<CollabDetails collaborations={COLLAB_DATA}/>}/>
                         <Route path="login" element={<Login/>}/>
                         <Route path={"/db"} element={<HomePageDB/>}/>
-                        <Route path={"/upload"} element={<UploadImage/>}/>
+                        <Route path={"/upload"} element={<UploadPostPage/>}/>
+                        <Route path="postdb/:id" element={<PictureDetailsDb />}/>
                 </Route>
             </Routes>
         </HashRouter>

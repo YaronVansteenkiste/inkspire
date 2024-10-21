@@ -1,7 +1,9 @@
 import React from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Nav, Row} from "react-bootstrap";
 import PostCard from "./PostCard.jsx";
 import {FilterBar} from "./FilterBar.jsx";
+import {UploadPostPage} from "../pages/UploadPostPage.jsx";
+import {NavLink} from "react-router-dom";
 
 
 export function Exploration(props) {
