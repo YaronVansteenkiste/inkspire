@@ -8,7 +8,7 @@ export function PictureDetails() {
     console.log(id)
     const { images } = useImageContext();
 
-    const image = images.find(images => images.id === (id));
+    const image = images.find(image => image.id === (id));
     console.log(image)
 
 

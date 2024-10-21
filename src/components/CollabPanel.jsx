@@ -1,11 +1,11 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import {ReactSketchCanvas} from 'react-sketch-canvas';
 import {Button, ButtonGroup, Col, Form} from 'react-bootstrap';
 
 function CollabToolbar(props) {
     const {color, brushSize, backgroundColor,
         handleClearCanvas, handleColorChange, handleBrushSizeChange,
-        handleBackgroundColorChange, handleDownloadCanvas } = props;
+        handleBackgroundColorChange, handleDownloadCanvas, handleSaveCanvas } = props;
 
     return (
         <ButtonGroup className="mt-3">
@@ -31,15 +31,19 @@ function CollabToolbar(props) {
                 className="ms-2"
             />
             <Button variant="primary" className="ms-2" onClick={handleDownloadCanvas}>Download</Button>
+            <Button variant="success" className="ms-2" onClick={handleSaveCanvas}>Save</Button>
+
         </ButtonGroup>
     );
 }
 
-export const CollabPanel = () => {
+export const CollabPanel = (props) => {
+    const {image} = props;
     const [color, setColor] = useState("red");
     const [brushSize, setBrushSize] = useState(4);
     const [backgroundColor, setBackgroundColor] = useState("#FFFFFF");
     const canvasRef = useRef(null);
+
 
     const handleClearCanvas = () => {
         canvasRef.current.clearCanvas();
@@ -86,8 +90,8 @@ export const CollabPanel = () => {
                 strokeWidth={brushSize}
                 strokeColor={color}
                 canvasColor={backgroundColor}
+                backgroundImage={image}
             />
-
         </Col>
     );
 };

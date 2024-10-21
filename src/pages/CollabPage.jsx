@@ -1,20 +1,15 @@
 import * as React from 'react';
 import {Card, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {useCollabContext} from "../context/CollabFromDbContext.jsx";
+import {GridLayout} from "../components/GridLayout.jsx";
 
-export const CollabPage = (props) => {
-    const {collaborations} = props;
+export function CollabPage ()  {
+    const {collaborations} = useCollabContext();
     return (
         <Row className="g-2">
             <h1>Collab</h1>
-            {collaborations.map((collab, index) =>
-                <Card key={index}>
-                    <Card.Title>{collab.title}</Card.Title>
-                    <Card.Body>
-                        <Link to={`/collab/${collab.id}`}>Details</Link>
-                    </Card.Body>
-                </Card>
-            )}
+            <GridLayout items={collaborations} itemType="collab" />
         </Row>
     );
 };
