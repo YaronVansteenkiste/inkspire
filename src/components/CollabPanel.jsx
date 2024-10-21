@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
-import { ReactSketchCanvas } from 'react-sketch-canvas';
-import { Col, Button, ButtonGroup, Form } from 'react-bootstrap';
+import React, {useRef, useState} from "react";
+import {ReactSketchCanvas} from 'react-sketch-canvas';
+import {Button, ButtonGroup, Col, Form} from 'react-bootstrap';
 
 function CollabToolbar(props) {
     const {color, brushSize, backgroundColor,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Card, Row} from "react-bootstrap";
-import {Link} from "react-router-dom"; // Import Link from react-router-dom
+import {Link} from "react-router-dom";
 
 export const CollabPage = (props) => {
     const {collaborations} = props;

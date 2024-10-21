@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState} from 'react';
 import {useCollectionData} from "react-firebase-hooks/firestore";
-import {collection, getDoc} from 'firebase/firestore';
+import {collection} from 'firebase/firestore';
 import {firestoreDB} from '../services/firebase.js';
 
 const ImageContext = createContext();
