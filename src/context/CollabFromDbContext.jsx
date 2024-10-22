@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState} from 'react';
 import {useCollectionData} from "react-firebase-hooks/firestore";
-import {collection} from 'firebase/firestore';
+import {collection, addDoc} from 'firebase/firestore';
 import {firestoreDB} from '../services/firebase.js';
 
 const CollabContext = createContext();
@@ -26,9 +26,12 @@ export function CollabProvider({ children }) {
     const collaborations = values ?? [];
     const [collabSelected, setCollabSelected] = useState(undefined);
 
+    const addCollaboration = async (collab) => {
+        await addDoc(query, collab);
+    };
 
     const api = {
-        collaborations, collabSelected, setCollabSelected
+        collaborations, collabSelected, setCollabSelected, addCollaboration
     };
 
     return (

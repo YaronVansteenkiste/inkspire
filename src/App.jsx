@@ -16,6 +16,7 @@ import Footer from "./components/Footer.jsx";
 import {Providers} from "./components/Providers.jsx";
 import {UploadPostPage} from "./pages/UploadPostPage.jsx";
 import {PictureDetails} from "./pages/PictureDetails.jsx";
+import {CreateCollabPage} from "./pages/CreateCollabPage.jsx";
 
 const Layout = () => {
     return (
@@ -44,6 +45,7 @@ function App() {
                         <Route path="collab/:id" element={<CollabDetails collaborations={COLLAB_DATA}/>}/>
                         <Route path="login" element={<Login/>}/>
                         <Route path={"/upload"} element={<UploadPostPage/>}/>
+                        <Route path={"/create-collab"} element={<CreateCollabPage/>}/>
                 </Route>
             </Routes>
         </HashRouter>

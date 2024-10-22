@@ -16,6 +16,11 @@ async function saveImageMetadata(metadata) {
     await addDoc(imagesCollection, metadata);
 }
 
+async function saveCollabMetadata(metadata) {
+    const collabsCollection = collection(firestoreDB, 'collaborations');
+    await addDoc(collabsCollection, metadata);
+}
+
 export async function handleImageUpload(file, title, author, description, category) {
     const url = await imageUploadService(file);
     const metadata = {
@@ -29,4 +34,14 @@ export async function handleImageUpload(file, title, author, description, catego
         category: category
     };
     await saveImageMetadata(metadata);
+}
+
+export async function handleCollabUpload(file, title, description) {
+    const url = await imageUploadService(file);
+    const metadata = {
+        title,
+        url,
+        description,
+    };
+    await saveCollabMetadata(metadata);
 }

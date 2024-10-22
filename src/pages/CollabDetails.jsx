@@ -14,7 +14,7 @@ export function CollabDetails() {
     return (
         <Container>
             <h1>{collab.title}</h1>
-            <CollabPanel image={collab.url}/>
+            <CollabPanel collab={collab}/>
         </Container>
     )
 }
