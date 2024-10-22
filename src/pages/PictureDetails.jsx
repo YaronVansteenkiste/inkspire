@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Card, Col, Container, Figure, Form, Row } from 'react-bootstrap';
-import {useImageContext} from "../context/ImageFromDbContext.jsx";
+import { useImageContext } from "../context/ImageFromDbContext.jsx";
 
 export function PictureDetails() {
     const { id } = useParams();
-    console.log(id)
     const { images } = useImageContext();
+    const [image, setImage] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const image = images.find(image => image.id === (id));
-    console.log(image)
+    useEffect(() => {
+        const foundImage = images.find(image => image.id === id);
+        if (foundImage) {
+            setImage(foundImage);
+        }
+        setLoading(false);
+    }, [id, images]);
 
+    if (loading) {
+        return <h1>Loading...</h1>;
+    }
+
+    if (!image) {
+        return <h1>Image not found</h1>;
+    }
 
     return (
         <Container>
