@@ -16,15 +16,6 @@ async function saveImageMetadata(metadata) {
     await addDoc(imagesCollection, metadata);
 }
 
-async function saveCollabMetadata(metadata, collabId) {
-    const collabsCollection = collection(firestoreDB, 'collaborations');
-    if (collabId) {
-        const collabDoc = doc(collabsCollection, collabId);
-        await setDoc(collabDoc, metadata, { merge: true });
-    } else {
-        await addDoc(collabsCollection, metadata);
-    }
-}
 
 export async function handleImageUpload(file, title, author, description, category) {
     const url = await imageUploadService(file);
@@ -41,14 +32,26 @@ export async function handleImageUpload(file, title, author, description, catego
     await saveImageMetadata(metadata);
 }
 
-export async function handleCollabUpload(file, title, description, fileName, collabId = null) {
-    const url = await imageUploadService(file, fileName);
+async function saveCollabMetadata(metadata, collabId = null) {
+    const collabCollection = collection(firestoreDB, 'collaborations');
+    if (collabId) {
+        const collabDoc = doc(collabCollection, collabId);
+        await setDoc(collabDoc, metadata);
+    } else {
+        await addDoc(collabCollection, metadata);
+    }
 
+}
+
+// src/services/imageUploadService.jsx
+export async function handleCollabUpload(paths, title, description, fileName, collabId = null) {
+    // Prepare metadata
     const metadata = {
         title,
-        url,
         description,
+        paths // Include paths directly in metadata
     };
 
+    // Save metadata to Firestore
     await saveCollabMetadata(metadata, collabId);
 }

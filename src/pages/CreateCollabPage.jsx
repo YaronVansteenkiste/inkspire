@@ -1,3 +1,4 @@
+// src/pages/CreateCollabPage.jsx
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +15,7 @@ export function CreateCollabPage() {
         const newCollab = {
             title,
             description,
-            url: 'https://firebasestorage.googleapis.com/v0/b/inkspire-52e9b.appspot.com/o/images%2Fcollab_id.png?alt=media&token=99bc3fd8-d967-4381-a1e2-9a33874bfdbc'
+            paths: []
         };
         await addCollaboration(newCollab);
         navigate('/collab');
