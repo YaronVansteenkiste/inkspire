@@ -2,13 +2,15 @@ import React from "react";
 import {useParams} from "react-router-dom";
 import {Col, Container, Row} from "react-bootstrap";
 import PostCard from "../components/PostCard.jsx";
+import {useImageContext} from "../context/ImageFromDbContext.jsx";
 
 
 export function SearchResultsPage(props) {
-    const {searchQuery} = useParams();
-    const {images} = props;
-
-    const filteredImages = images.filter(image => image.title.toLowerCase().includes(searchQuery.toLowerCase()));
+    const { searchQuery } = useParams();
+    const { images } = useImageContext();
+    const filteredImages = images.filter(image =>
+        image.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
         <Container>

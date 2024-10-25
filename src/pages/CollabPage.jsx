@@ -9,9 +9,11 @@ export function CollabPage ()  {
     return (
         <Row className="g-2">
             <h1>Collab</h1>
-            <Button as={Link} to="/create-collab" variant="primary" className="mb-3">
-                Create Collab
-            </Button>
+            <div>
+                <Button as={Link} to="/create-collab" variant="primary" className="mb-3">
+                    Create Collab
+                </Button>
+            </div>
             <Collablist items={collaborations} itemType="collab" />
         </Row>
     );

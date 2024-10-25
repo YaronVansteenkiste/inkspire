@@ -39,10 +39,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                         <Route index element={<HomePage />}/>
-                        <Route path="collab" element={<CollabPage collaborations={COLLAB_DATA}/>}/>
+                        <Route path="collab" element={<CollabPage />}/>
                         <Route path="post/:id" element={<PictureDetails />}/>
-                        <Route path="search/:searchQuery" element={<SearchResultsPage images={IMAGES_DATA}/>}/>
-                        <Route path="collab/:id" element={<CollabDetailsPage collaborations={COLLAB_DATA}/>}/>
+                        <Route path="search/:searchQuery" element={<SearchResultsPage />}/>
+                        <Route path="collab/:id" element={<CollabDetailsPage />}/>
                         <Route path="login" element={<Login/>}/>
                         <Route path={"/upload"} element={<CreatePostPage/>}/>
                         <Route path={"/create-collab"} element={<CreateCollabPage/>}/>
