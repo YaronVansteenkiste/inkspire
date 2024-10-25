@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { handleImageUpload } from '../services/imageUploadService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { useMessageContext } from '../context/MessageContext.jsx';
-import Message from '../components/Message.jsx';
+import { useAlertContext } from '../context/AlertContext.jsx';
+import Alert from '../components/Alert.jsx';
 
 export function CreatePostPage() {
     const [file, setFile] = useState(null);
@@ -12,7 +12,7 @@ export function CreatePostPage() {
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const { setMessage } = useMessageContext();
+    const { setMessage } = useAlertContext();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -90,7 +90,7 @@ export function CreatePostPage() {
                 </div>
             </form>
 
-            <Message />
+            <Alert />
         </div>
     );
 }

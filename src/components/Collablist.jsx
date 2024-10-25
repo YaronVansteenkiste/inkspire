@@ -1,8 +1,16 @@
+// src/components/Collablist.jsx
 import React from 'react';
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Card, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useCollabContext } from '../context/CollabFromDbContext.jsx';
 
 export function Collablist({ items, itemType }) {
+    const { loading } = useCollabContext();
+
+    if (loading) {
+        return <Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner>;
+    }
+
     return (
         <Row className="g-3">
             {items.map((item, index) => (

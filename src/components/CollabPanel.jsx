@@ -2,8 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { ReactSketchCanvas } from 'react-sketch-canvas';
 import { Button, ButtonGroup, Col, Form } from 'react-bootstrap';
 import { handleCollabUpload } from "../services/imageUploadService";
-import { useMessageContext } from '../context/MessageContext.jsx';
-import Message from '../components/Message.jsx';
+import { useAlertContext } from '../context/AlertContext.jsx';
+import Alert from './Alert.jsx';
 
 function CollabToolbar(props) {
     const {
@@ -38,7 +38,7 @@ export const CollabPanel = (props) => {
     const [color, setColor] = useState("red");
     const [brushSize, setBrushSize] = useState(4);
     const canvasRef = useRef(null);
-    const { setMessage } = useMessageContext();
+    const { setMessage } = useAlertContext();
 
     const handleClearCanvas = () => {
         canvasRef.current.clearCanvas();
@@ -93,7 +93,7 @@ export const CollabPanel = (props) => {
                 strokeColor={color}
                 allowOnlyPointerType="all"
             />
-            <Message />
+            <Alert />
         </Col>
     );
 };

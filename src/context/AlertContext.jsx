@@ -1,8 +1,8 @@
 import {createContext, useContext, useState} from 'react';
 
-const MessageContext = createContext();
+const AlertContext = createContext();
 
-export function MessageProvider(props) {
+export function AlertProvider(props) {
     const [message, setMessage] = useState("");
     console.log({message});
     const clearMessage = () => setMessage("");
@@ -11,10 +11,10 @@ export function MessageProvider(props) {
         message, setMessage, clearMessage
     };
 
-    return <MessageContext.Provider value={api}>
+    return <AlertContext.Provider value={api}>
         {props.children}
-    </MessageContext.Provider>
+    </AlertContext.Provider>
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const useMessageContext = () => useContext(MessageContext);
+export const useAlertContext = () => useContext(AlertContext);

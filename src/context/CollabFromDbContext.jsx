@@ -1,4 +1,3 @@
-// src/context/CollabFromDbContext.jsx
 import React, {createContext, useContext, useState} from 'react';
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {collection, addDoc} from 'firebase/firestore';
@@ -22,7 +21,6 @@ const CollabConverter = {
     }
 };
 
-// src/context/CollabFromDbContext.jsx
 export function CollabProvider({ children }) {
     const query = collection(firestoreDB, 'collaborations').withConverter(CollabConverter);
     const [values, loading, error] = useCollectionData(query);
@@ -35,7 +33,7 @@ export function CollabProvider({ children }) {
     };
 
     const api = {
-        collaborations, collabSelected, setCollabSelected, addCollaboration
+        collaborations, collabSelected, setCollabSelected, addCollaboration, loading, error
     };
 
     return (
