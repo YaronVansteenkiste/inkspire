@@ -59,7 +59,7 @@ export function PictureDetails() {
             <Row className="justify-content-md-center">
                 <Col md={12}>
                     <h1 className="text-center">{image.title}</h1>
-                    <p className="text-center">published on {image.publishDate}</p>
+                    <p className="text-center">published on {new Date(image.publishDate).toLocaleString()}</p>
                 </Col>
             </Row>
             <Row className="justify-content-center mt-4">
