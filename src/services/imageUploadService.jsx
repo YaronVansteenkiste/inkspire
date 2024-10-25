@@ -18,7 +18,8 @@ async function saveImageMetadata(metadata) {
 
 
 export async function handleImageUpload(file, title, author, description, category) {
-    const url = await imageUploadService(file);
+    const filename = `${new Date().getTime()}_${file.name}`;
+    const url = await imageUploadService(file, filename);
     const metadata = {
         title,
         url,
@@ -43,15 +44,12 @@ async function saveCollabMetadata(metadata, collabId = null) {
 
 }
 
-// src/services/imageUploadService.jsx
 export async function handleCollabUpload(paths, title, description, fileName, collabId = null) {
-    // Prepare metadata
     const metadata = {
         title,
         description,
-        paths // Include paths directly in metadata
+        paths
     };
 
-    // Save metadata to Firestore
     await saveCollabMetadata(metadata, collabId);
 }

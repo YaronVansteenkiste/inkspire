@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { handleImageUpload } from '../services/imageUploadService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { useMessageContext } from '../context/MessageContext.jsx';
+import Message from '../components/Message.jsx';
 
-export function UploadPostPage() {
+export function CreatePostPage() {
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [showToast, setShowToast] = useState(false);
+    const { setMessage } = useMessageContext();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (file) {
-            await handleImageUpload(file, title, author, description, category);
-            setShowToast(true);
+            try {
+                const postId = await handleImageUpload(file, title, author, description, category);
+                setMessage("Image uploaded successfully!");
+                navigate(`/posts/${postId}`);
+            } catch (error) {
+                setMessage("Error uploading image.");
+            }
         }
     };
 
@@ -81,23 +90,7 @@ export function UploadPostPage() {
                 </div>
             </form>
 
-            <div
-                className={`toast m-3 position-fixed bottom-0 end-0 p-3 ${showToast ? 'show' : 'hide'}`}
-                role="alert"
-                aria-live="assertive"
-                aria-atomic="true"
-                data-bs-autohide="true"
-                data-bs-delay="3000"
-                onAnimationEnd={() => setShowToast(false)}
-            >
-                <div className="toast-header">
-                    <strong className="me-auto">Upload Status</strong>
-                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div className="toast-body bg-secondary">
-                    Image uploaded successfully!
-                </div>
-            </div>
+            <Message />
         </div>
     );
 }

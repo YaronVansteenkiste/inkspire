@@ -1,7 +1,9 @@
-import React, {useRef, useState, useEffect} from "react";
-import {ReactSketchCanvas} from 'react-sketch-canvas';
-import {Button, ButtonGroup, Col, Form} from 'react-bootstrap';
-import {handleCollabUpload} from "../services/imageUploadService";
+import React, { useRef, useState, useEffect } from "react";
+import { ReactSketchCanvas } from 'react-sketch-canvas';
+import { Button, ButtonGroup, Col, Form } from 'react-bootstrap';
+import { handleCollabUpload } from "../services/imageUploadService";
+import { useMessageContext } from '../context/MessageContext.jsx';
+import Message from '../components/Message.jsx';
 
 function CollabToolbar(props) {
     const {
@@ -10,7 +12,7 @@ function CollabToolbar(props) {
     } = props;
 
     return (
-        <ButtonGroup className="mt-3">
+        <ButtonGroup className="my-3">
             <Button variant="danger" onClick={handleClearCanvas}>Clear Canvas</Button>
             <Form.Control
                 type="color"
@@ -32,10 +34,11 @@ function CollabToolbar(props) {
 }
 
 export const CollabPanel = (props) => {
-    const {collab} = props;
+    const { collab } = props;
     const [color, setColor] = useState("red");
     const [brushSize, setBrushSize] = useState(4);
     const canvasRef = useRef(null);
+    const { setMessage } = useMessageContext();
 
     const handleClearCanvas = () => {
         canvasRef.current.clearCanvas();
@@ -56,20 +59,13 @@ export const CollabPanel = (props) => {
         }
 
         try {
-            // Export the current drawing paths
             const drawingPaths = await canvasRef.current.exportPaths();
-            console.log("Exported drawing paths:", drawingPaths);
-
-            if (drawingPaths.length === 0) {
-                console.warn("No drawing paths found.");
-                return;
-            }
-
-            // Proceed to upload the drawing paths
             const fileName = `${collab.id}_collaboration_paths.json`;
             await handleCollabUpload(drawingPaths, collab.title, "Collaboration Description", fileName, collab.id);
+            setMessage("Canvas saved successfully!");
         } catch (error) {
             console.error("Error exporting canvas:", error);
+            setMessage("Error saving canvas.");
         }
     };
 
@@ -97,6 +93,7 @@ export const CollabPanel = (props) => {
                 strokeColor={color}
                 allowOnlyPointerType="all"
             />
+            <Message />
         </Col>
     );
 };

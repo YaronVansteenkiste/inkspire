@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useCollabContext } from "../context/CollabFromDbContext.jsx";
 
-export function CollabDetails() {
+export function CollabDetailsPage() {
     const { id } = useParams();
     const { collaborations } = useCollabContext();
     const [collab, setCollab] = useState(null);

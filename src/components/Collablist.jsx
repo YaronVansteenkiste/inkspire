@@ -1,9 +1,8 @@
-// src/components/GridLayout.jsx
 import React from 'react';
 import {Card, Row, Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-export function GridLayout({ items, itemType }) {
+export function Collablist({ items, itemType }) {
     return (
         <Row className="g-2">
             {items.map((item, index) => (
