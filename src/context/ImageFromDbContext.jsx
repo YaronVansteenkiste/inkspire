@@ -1,7 +1,7 @@
-import React, {createContext, useContext, useState} from 'react';
-import {useCollectionData} from "react-firebase-hooks/firestore";
-import {collection} from 'firebase/firestore';
-import {firestoreDB} from '../services/firebase.js';
+import React, { createContext, useContext, useState } from 'react';
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import { collection, updateDoc } from 'firebase/firestore';
+import { firestoreDB } from '../services/firebase.js';
 
 const ImageContext = createContext();
 
@@ -31,9 +31,15 @@ export function ImagesProvider({ children }) {
     const images = values ?? [];
     const [imageSelected, setImageSelected] = useState(undefined);
 
+    const incrementLikes = async (image) => {
+        const imageRef = image.ref;
+        await updateDoc(imageRef, {
+            likes: image.likes + 1
+        });
+    }
 
     const api = {
-        images, imageSelected, setImageSelected
+        images, imageSelected, setImageSelected, incrementLikes
     };
 
     return (
