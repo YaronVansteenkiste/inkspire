@@ -3,7 +3,6 @@ import Comment from '../Comment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default {
-  title: 'Components/Comment',
   component: Comment,
 };
 
