@@ -1,4 +1,3 @@
-// src/pages/HomePage.jsx
 import React, { useState } from "react";
 import Trending from "../components/Trending.jsx";
 import { Exploration } from "../components/Exploration.jsx";

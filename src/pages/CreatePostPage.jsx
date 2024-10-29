@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { handleImageUpload } from '../services/imageUploadService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useAlertContext } from '../context/AlertContext.jsx';
+import { useUserContext } from '../context/UserFromDbContext.jsx';
 import Alert from '../components/Alert.jsx';
 
 export function CreatePostPage() {
@@ -13,7 +14,14 @@ export function CreatePostPage() {
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const { setMessage } = useAlertContext();
+    const { currentUserData } = useUserContext();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (currentUserData) {
+            setAuthor(currentUserData.username);
+        }
+    }, [currentUserData]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -50,17 +58,6 @@ export function CreatePostPage() {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder="Enter image title"
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="author" className="form-label">Author</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="author"
-                        value={author}
-                        onChange={(e) => setAuthor(e.target.value)}
-                        placeholder="Enter author name"
                     />
                 </div>
                 <div className="mb-3">

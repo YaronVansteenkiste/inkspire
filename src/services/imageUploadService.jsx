@@ -31,6 +31,8 @@ export async function handleImageUpload(file, title, author, description, catego
         category: category
     };
     await saveImageMetadata(metadata);
+    const docRef = await addDoc(collection(firestoreDB, 'images'), metadata);
+    return docRef.id;
 }
 
 async function saveCollabMetadata(metadata, collabId = null) {
