@@ -12,16 +12,13 @@ function Header(props) {
     const { currentUser, logout } = useAuthContext();
     const suggestions = images.map(image => image.title);
 
-    const handleLogout = async () => {
-        await logout();
-    };
-
-
 
     return (
         <Navbar expand="lg" className="navbar-dark border-bottom border-light-subtle">
             <Container fluid>
-                <Navbar.Brand href="/"><img src="/images/logo.png" alt="Logo"></img></Navbar.Brand>
+                <Navbar.Brand>
+                    <NavLink to="/"><img src="/images/logo.png" alt="Logo"></img></NavLink>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll" className="justify-content-between">
                     <Nav
@@ -39,8 +36,6 @@ function Header(props) {
                                      className="btn btn-secondary text-light rounded mx-0 mx-lg-1 mt-2 mt-lg-0">Upload</NavLink>
                             <NavLink to="/profile"
                                      className="btn btn-secondary text-light rounded mx-0 mx-lg-1 mt-2 mt-lg-0">{currentUserData.username}</NavLink>
-                            <button onClick={handleLogout}
-                                     className="btn btn-secondary text-light rounded mx-0 mx-lg-1 mt-2 mt-lg-0">Logout</button>
                         </Nav>
                     ) : (
                         <Nav className="d-block d-lg-flex">

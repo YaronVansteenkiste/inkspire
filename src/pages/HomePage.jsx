@@ -1,16 +1,14 @@
-import React, {useState} from "react";
+// src/pages/HomePage.jsx
+import React, { useState } from "react";
 import Trending from "../components/Trending.jsx";
-import YourWorks from "../components/YourWorks.jsx";
-import {Exploration} from "../components/Exploration.jsx";
-import {Container} from "react-bootstrap";
-import {useImageContext} from "../context/ImageFromDbContext.jsx";
+import { Exploration } from "../components/Exploration.jsx";
+import { Container } from "react-bootstrap";
+import { useImageContext } from "../context/ImageFromDbContext.jsx";
 
 export function HomePage() {
     const { images } = useImageContext();
-
     const [filterCriteria, setFilterCriteria] = useState({ category: "All", sortBy: "None" });
 
-    const yourWorks = images.filter(img => img.author === "Yaron");
     const trendingImages = [...images].sort((a, b) => b.likes - a.likes).slice(0, 5);
 
     const handleFilterChange = criteria => setFilterCriteria(criteria);
@@ -28,7 +26,6 @@ export function HomePage() {
     return (
         <Container className="mt-5">
             <Trending trendingData={trendingImages} />
-            <YourWorks yourWorksData={yourWorks} />
             <Exploration images={sortedImages} onFilterChange={handleFilterChange} />
         </Container>
     );

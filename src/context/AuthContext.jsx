@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
 
     const logout = async () => {
         await signOut(auth);
-        setCurrentUser(null); // Ensure state is updated
+        setCurrentUser(null);
         navigate('/');
     };
 

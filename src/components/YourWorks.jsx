@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Container, Row } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import PostCard from "./PostCard.jsx";
 import { NavLink } from "react-router-dom";
 
@@ -33,7 +33,9 @@ function YourWorks(props) {
                 <Container>
                     <Row>
                         {yourWorksData.map(img => (
-                            <PostCard key={img.id} post={img} />
+                            <Col key={img.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
+                                <PostCard post={img} />
+                            </Col>
                         ))}
                     </Row>
                 </Container>

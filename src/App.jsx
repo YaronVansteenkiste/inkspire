@@ -18,6 +18,7 @@ import {PictureDetails} from "./pages/PictureDetails.jsx";
 import {CreateCollabPage} from "./pages/CreateCollabPage.jsx";
 import {LoginPage} from "./pages/LoginPage.jsx";
 import {RegisterPage} from "./pages/RegisterPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 const Layout = () => {
     return (
@@ -47,6 +48,7 @@ function App() {
                         <Route path={"/create-collab"} element={<CreateCollabPage/>}/>
                         <Route path="/login" element={<LoginPage/>}/>
                         <Route path="/register" element={<RegisterPage/>}/>
+                        <Route path="/profile" element={<ProfilePage />}/>
                 </Route>
             </Routes>
         </HashRouter>
