@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { ProfileDetails } from '../components/ProfileDetails';
 import { ProfileActions } from '../components/ProfileActions';
 import { useAuthContext } from '../context/AuthContext.jsx';
 import { useUserContext } from '../context/UserFromDbContext.jsx';
 import YourWorks from "../components/YourWorks.jsx";
-import {Row} from "react-bootstrap";
-import {useImageContext} from "../context/ImageFromDbContext.jsx";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import { useImageContext } from "../context/ImageFromDbContext.jsx";
+import Avvvatars from 'avvvatars-react';
 
 function ProfilePage() {
     const { images } = useImageContext();
@@ -18,34 +19,37 @@ function ProfilePage() {
         setShowYourWorks(!!currentUserData);
     }, [currentUserData]);
 
-
     if (!currentUser || !currentUserData) {
         return <div>Loading...</div>;
     }
 
     const yourWorks = currentUserData ? images.filter(img => img.author === currentUserData.username) : [];
 
-
     return (
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-md-4">
-                    <div className="card mb-3">
-                        <div className="card-header text-center">
-                            <h4>{currentUserData.username}</h4>
-                        </div>
-                    </div>
-                    <ProfileActions />
-                </div>
+        <Container className="mt-5">
+            <Row>
+                <Col md={12}>
+                    <h1 className="text-center">{currentUserData.username}</h1>
+                </Col>
+                <Col md={4}>
+                    <Card className="mb-3">
+                        <Card.Header className="text-center mx-auto">
+                            <Avvvatars value={currentUserData.username} size={100} />
+                        </Card.Header>
+                        <Card.Body>
+                            <ProfileActions />
+                        </Card.Body>
+                    </Card>
+                </Col>
 
-                <div className="col-md-8">
+                <Col md={8}>
                     <ProfileDetails userData={currentUserData} />
-                </div>
-            </div>
+                </Col>
+            </Row>
             <Row>
                 {showYourWorks && <YourWorks yourWorksData={yourWorks} />}
             </Row>
-        </div>
+        </Container>
     );
 }
 
