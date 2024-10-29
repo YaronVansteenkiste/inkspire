@@ -14,3 +14,17 @@ Default.args = {
   text: 'This is a comment.',
   timestamp: Date.now(),
 };
+
+export const NoAuthor = Template.bind({});
+NoAuthor.args = {
+  author: '',
+  text: 'This comment has no author.',
+  timestamp: Date.now(),
+};
+
+export const LongText = Template.bind({});
+LongText.args = {
+  author: 'Test User',
+  text: 'This is a very long comment text to test how the component handles longer content. '.repeat(10),
+  timestamp: Date.now(),
+};
