@@ -15,7 +15,7 @@ const CollabConverter = {
     },
     fromFirestore: function (snapshot, options) {
         const data = snapshot.data();
-        console.log("Loaded data from Firestore:", data); // Debugging line
+        console.log("Loaded data from Firestore:", data);
         const id = snapshot.id;
         return { ...data, id, ref: snapshot.ref };
     }
@@ -25,7 +25,7 @@ export function CollabProvider({ children }) {
     const query = collection(firestoreDB, 'collaborations').withConverter(CollabConverter);
     const [values, loading, error] = useCollectionData(query);
     const collaborations = values ?? [];
-    console.log("Collaborations state:", collaborations); // Debugging line
+    console.log("Collaborations state:", collaborations);
     const [collabSelected, setCollabSelected] = useState(undefined);
 
     const addCollaboration = async (collab) => {

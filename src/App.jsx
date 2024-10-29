@@ -28,7 +28,6 @@ const Layout = () => {
             <Outlet/>
             <Footer/>
             </Providers>
-
         </div>
     )
 }

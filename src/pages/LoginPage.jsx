@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../services/firebase.js";
 
 export function LoginPage() {
     const [formData, setFormData] = useState({
@@ -8,13 +10,16 @@ export function LoginPage() {
     });
 
     const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         let validationErrors = {};
 
@@ -23,7 +28,17 @@ export function LoginPage() {
 
         setErrors(validationErrors);
         if (Object.keys(validationErrors).length === 0) {
-            console.log('Form submitted:', formData);
+            setLoading(true);
+            try {
+                await signInWithEmailAndPassword(auth, formData.email, formData.password);
+                setError('');
+                setSuccessMessage('Login successful!');
+            } catch (error) {
+                setError(error.message);
+                setSuccessMessage('');
+            } finally {
+                setLoading(false);
+            }
         }
     };
 
@@ -53,7 +68,11 @@ export function LoginPage() {
                     />
                     {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Login</button>
+                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                    {loading ? 'Logging in...' : 'Login'}
+                </button>
+                {error && <div className="alert alert-danger mt-3">{error}</div>}
+                {successMessage && <div className="alert alert-success mt-3">{successMessage}</div>}
             </form>
         </div>
     );

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../services/firebase.js";
+import { useUserContext } from '../context/UserFromDbContext';
 
 export function RegisterPage() {
     const [formData, setFormData] = useState({
@@ -10,13 +13,17 @@ export function RegisterPage() {
     });
 
     const [errors, setErrors] = useState({});
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const { addUser } = useUserContext();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         let validationErrors = {};
 
@@ -27,7 +34,22 @@ export function RegisterPage() {
 
         setErrors(validationErrors);
         if (Object.keys(validationErrors).length === 0) {
-            console.log('Form submitted:', formData);
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+                const user = userCredential.user;
+
+                await addUser({
+                    uid: user.uid,
+                    username: formData.username,
+                    email: formData.email
+                });
+
+                setSuccessMessage('Registration successful! You can now log in.');
+                setErrorMessage('');
+            } catch (error) {
+                setErrorMessage(error.message);
+                setSuccessMessage('');
+            }
         }
     };
 
@@ -80,6 +102,8 @@ export function RegisterPage() {
                     {errors.confirmPassword && <div className="invalid-feedback">{errors.confirmPassword}</div>}
                 </div>
                 <button type="submit" className="btn btn-primary w-100">Register</button>
+                {successMessage && <div className="alert alert-success mt-3">{successMessage}</div>}
+                {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
             </form>
         </div>
     );
