@@ -10,7 +10,7 @@ import Alert from '../components/Alert.jsx';
 export function CreatePostPage() {
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
-    const [author, setAuthor] = useState('');
+    const [authorId, setAuthorId] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const { setMessage } = useAlertContext();
@@ -19,7 +19,7 @@ export function CreatePostPage() {
 
     useEffect(() => {
         if (currentUserData) {
-            setAuthor(currentUserData.username);
+            setAuthorId(currentUserData.id);
         }
     }, [currentUserData]);
 
@@ -27,7 +27,7 @@ export function CreatePostPage() {
         e.preventDefault();
         if (file) {
             try {
-                const postId = await handleImageUpload(file, title, author, description, category);
+                const postId = await handleImageUpload(file, title, authorId, description, category);
                 setMessage("Image uploaded successfully!");
                 navigate(`/post/${postId}`);
             } catch (error) {

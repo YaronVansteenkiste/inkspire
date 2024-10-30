@@ -19,8 +19,12 @@ export function FilterBar(props) {
                         <Form.Label>Category</Form.Label>
                         <FormControl as="select" value={category} onChange={(e) => setCategory(e.target.value)}>
                             <option>All</option>
-                            <option>Charcoal</option>
-                            <option>Oil Painting</option>
+                            <option value="Charcoal">Charcoal</option>
+                            <option value="Oil Painting">Oil Painting</option>
+                            <option value="Watercolor">Watercolor</option>
+                            <option value="Acrylic">Acrylic</option>
+                            <option value="Digital Art">Digital Art</option>
+                            <option value="Pencil">Pencil</option>
                         </FormControl>
                     </Form.Group>
                     <Form.Group className="mx-2 col-4">

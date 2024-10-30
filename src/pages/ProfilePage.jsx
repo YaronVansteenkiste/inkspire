@@ -1,29 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { ProfileDetails } from '../components/ProfileDetails';
-import { ProfileActions } from '../components/ProfileActions';
-import { useAuthContext } from '../context/AuthContext.jsx';
-import { useUserContext } from '../context/UserFromDbContext.jsx';
+import React, {useEffect, useState} from 'react';
+import {ProfileDetails} from '../components/ProfileDetails';
+import {ProfileActions} from '../components/ProfileActions';
+import {useAuthContext} from '../context/AuthContext.jsx';
+import {useUserContext} from '../context/UserFromDbContext.jsx';
 import YourWorks from "../components/YourWorks.jsx";
-import { Container, Row, Col, Card } from "react-bootstrap";
-import { useImageContext } from "../context/ImageFromDbContext.jsx";
+import {Card, Col, Container, Row} from "react-bootstrap";
 import Avvvatars from 'avvvatars-react';
+import { query, collection, where, getDocs } from 'firebase/firestore';
+import { firestoreDB } from '../services/firebase.js';
 
-function ProfilePage() {
-    const { images } = useImageContext();
+export function ProfilePage() {
+    const [images, setImages] = useState([]);
     const { currentUser } = useAuthContext();
     const { currentUserData } = useUserContext();
 
-    const [showYourWorks, setShowYourWorks] = useState(!!currentUserData);
-
     useEffect(() => {
-        setShowYourWorks(!!currentUserData);
+        const fetchImages = async () => {
+            if (currentUserData) {
+                const q = query(collection(firestoreDB, 'images'), where('authorId', '==', currentUserData.id));
+                const querySnapshot = await getDocs(q);
+                const fetchedImages = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                setImages(fetchedImages);
+            }
+        };
+
+        fetchImages();
     }, [currentUserData]);
 
     if (!currentUser || !currentUserData) {
         return <div>Loading...</div>;
     }
-
-    const yourWorks = currentUserData ? images.filter(img => img.author === currentUserData.username) : [];
 
     return (
         <Container className="mt-5">
@@ -47,7 +53,7 @@ function ProfilePage() {
                 </Col>
             </Row>
             <Row>
-                {showYourWorks && <YourWorks yourWorksData={yourWorks} />}
+                {currentUserData && <YourWorks yourWorksData={images} />}
             </Row>
         </Container>
     );

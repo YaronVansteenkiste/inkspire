@@ -13,13 +13,13 @@ async function imageUploadService(file, filename) {
 
 
 
-export async function handleImageUpload(file, title, author, description, category) {
+export async function handleImageUpload(file, title, authorId, description, category) {
     const filename = `${new Date().getTime()}_${file.name}`;
     const url = await imageUploadService(file, filename);
     const metadata = {
         title,
         url,
-        author,
+        authorId,
         description,
         likes: 0,
         published: true,

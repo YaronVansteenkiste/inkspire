@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../services/firebase.js";
+import { Navigate } from 'react-router-dom';
 
 export function LoginPage() {
     const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export function LoginPage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const [redirect, setRedirect] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -33,6 +35,7 @@ export function LoginPage() {
                 await signInWithEmailAndPassword(auth, formData.email, formData.password);
                 setError('');
                 setSuccessMessage('Login successful!');
+                setRedirect(true);
             } catch (error) {
                 setError(error.message);
                 setSuccessMessage('');
@@ -44,6 +47,7 @@ export function LoginPage() {
 
     return (
         <div className="container mt-5">
+            {redirect && <Navigate to="/" />}
             <h1 className="text-center mb-4">Login</h1>
             <form onSubmit={handleSubmit} className="mx-auto" style={{ maxWidth: '400px' }}>
                 <div className="mb-3">
