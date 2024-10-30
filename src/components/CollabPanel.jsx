@@ -7,12 +7,13 @@ import { ReactSketchCanvas } from "react-sketch-canvas";
 function CollabToolbar(props) {
     const {
         color, brushSize,
-        handleClearCanvas, handleColorChange, handleBrushSizeChange, handleSaveCanvas
+        handleClearCanvas, handleColorChange, handleBrushSizeChange, handleSaveCanvas, handleUndo
     } = props;
 
     return (
         <ButtonGroup className="my-3">
             <Button variant="danger" onClick={handleClearCanvas}>Clear Canvas</Button>
+            <Button variant="warning" onClick={handleUndo}>Undo</Button>
             <Form.Control
                 type="color"
                 value={color}
@@ -41,6 +42,10 @@ export const CollabPanel = (props) => {
 
     const handleClearCanvas = () => {
         canvasRef.current.clearCanvas();
+    };
+
+    const handleUndo = () => {
+        canvasRef.current.undo();
     };
 
     const handleColorChange = (e) => {
@@ -90,6 +95,14 @@ export const CollabPanel = (props) => {
         }
     }, [collab, setMessage]);
 
+    useEffect(() => {
+        const autoSaveInterval = setInterval(() => {
+            handleSaveCanvas();
+        }, 60000); // Auto-save every 60 seconds
+
+        return () => clearInterval(autoSaveInterval);
+    }, []);
+
     return (
         <Col s={12}>
             <CollabToolbar
@@ -99,6 +112,7 @@ export const CollabPanel = (props) => {
                 handleColorChange={handleColorChange}
                 handleBrushSizeChange={handleBrushSizeChange}
                 handleSaveCanvas={handleSaveCanvas}
+                handleUndo={handleUndo}
             />
             <ReactSketchCanvas
                 ref={canvasRef}
