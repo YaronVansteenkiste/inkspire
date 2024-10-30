@@ -1,9 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
-import { ReactSketchCanvas } from 'react-sketch-canvas';
-import { Button, ButtonGroup, Col, Form } from 'react-bootstrap';
 import { handleCollabUpload } from "../services/imageUploadService";
 import { useAlertContext } from '../context/AlertContext.jsx';
-import Alert from './Alert.jsx';
+import { Button, ButtonGroup, Form, Col } from "react-bootstrap";
+import { useEffect, useRef, useState } from "react";
+import { ReactSketchCanvas } from "react-sketch-canvas";
 
 function CollabToolbar(props) {
     const {
@@ -70,10 +69,26 @@ export const CollabPanel = (props) => {
     };
 
     useEffect(() => {
-        if (collab.paths && canvasRef.current) {
-            canvasRef.current.loadPaths(collab.paths);
+        const loadPathsFromUrl = async (url) => {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const paths = await response.json();
+                if (canvasRef.current) {
+                    canvasRef.current.loadPaths(paths);
+                }
+            } catch (error) {
+                console.error("Error loading paths from URL:", error);
+                setMessage(`Error loading canvas paths: ${error.message}`);
+            }
+        };
+
+        if (collab.pathsUrl && canvasRef.current) {
+            loadPathsFromUrl(collab.pathsUrl);
         }
-    }, [collab]);
+    }, [collab, setMessage]);
 
     return (
         <Col s={12}>

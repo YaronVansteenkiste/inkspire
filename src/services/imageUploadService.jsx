@@ -30,7 +30,22 @@ export async function handleImageUpload(file, title, authorId, description, cate
     return docRef.id;
 }
 
-async function saveCollabMetadata(metadata, collabId = null) {
+async function uploadJsonToStorage(jsonData, filename) {
+    const storageRef = ref(storage, `collaborations/${filename}`);
+    const blob = new Blob([JSON.stringify(jsonData)], { type: 'application/json' });
+    await uploadBytes(storageRef, blob);
+    const url = await getDownloadURL(storageRef);
+    return url;
+}
+
+export async function handleCollabUpload(paths, title, description, fileName, collabId = null) {
+    const jsonUrl = await uploadJsonToStorage(paths, fileName);
+    const metadata = {
+        title,
+        description,
+        pathsUrl: jsonUrl
+    };
+
     const collabCollection = collection(firestoreDB, 'collaborations');
     if (collabId) {
         const collabDoc = doc(collabCollection, collabId);
@@ -38,15 +53,4 @@ async function saveCollabMetadata(metadata, collabId = null) {
     } else {
         await addDoc(collabCollection, metadata);
     }
-
-}
-
-export async function handleCollabUpload(paths, title, description, fileName, collabId = null) {
-    const metadata = {
-        title,
-        description,
-        paths
-    };
-
-    await saveCollabMetadata(metadata, collabId);
 }
