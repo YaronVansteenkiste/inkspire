@@ -36,7 +36,7 @@ export function PictureDetails() {
         if (commentText.trim()) {
             await addComment({
                 imageId: id,
-                author: "Anonymous", // Replace with actual user data
+                author: "Anonymous",
                 text: commentText,
                 timestamp: Date.now()
             });
@@ -79,12 +79,14 @@ export function PictureDetails() {
                         </Card.Header>
                         <Card.Body>
                             <Card.Text>{image.description}</Card.Text>
+                            <Card.Text><b>Category</b>: {image.category}</Card.Text>
                             <div className="d-flex justify-content-center">
                                 <Button variant="outline-secondary" size="sm" className="me-4" onClick={() => handleLike()}>
                                     {liked ? '💔' : '❤️'}
                                 </Button>
                                 <h4>{image.likes}</h4>
                             </div>
+
                         </Card.Body>
                     </Card>
                 </Col>

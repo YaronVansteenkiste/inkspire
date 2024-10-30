@@ -29,7 +29,7 @@ export function CreatePostPage() {
             try {
                 const postId = await handleImageUpload(file, title, author, description, category);
                 setMessage("Image uploaded successfully!");
-                navigate(`/posts/${postId}`);
+                navigate(`/post/${postId}`);
             } catch (error) {
                 setMessage("Error uploading image.");
             }
@@ -73,15 +73,22 @@ export function CreatePostPage() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="category" className="form-label">Category</label>
-                    <input
-                        type="text"
+                    <select
                         className="form-control"
                         id="category"
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
-                        placeholder="Enter image category"
-                    />
+                    >
+                        <option value="" disabled>Select an art medium</option>
+                        <option value="Charcoal">Charcoal</option>
+                        <option value="Oil Painting">Oil Painting</option>
+                        <option value="Watercolor">Watercolor</option>
+                        <option value="Acrylic">Acrylic</option>
+                        <option value="Digital Art">Digital Art</option>
+                        <option value="Pencil">Pencil</option>
+                    </select>
                 </div>
+
                 <div className="text-center">
                     <button type="submit" className="btn btn-primary">Upload</button>
                 </div>

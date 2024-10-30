@@ -11,10 +11,6 @@ async function imageUploadService(file, filename) {
     return url;
 }
 
-async function saveImageMetadata(metadata) {
-    const imagesCollection = collection(firestoreDB, 'images');
-    await addDoc(imagesCollection, metadata);
-}
 
 
 export async function handleImageUpload(file, title, author, description, category) {
@@ -30,7 +26,6 @@ export async function handleImageUpload(file, title, author, description, catego
         publishDate: new Date().toISOString(),
         category: category
     };
-    await saveImageMetadata(metadata);
     const docRef = await addDoc(collection(firestoreDB, 'images'), metadata);
     return docRef.id;
 }
