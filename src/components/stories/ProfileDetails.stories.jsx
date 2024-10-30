@@ -8,8 +8,8 @@ const meta = {
     userData: {
       control: 'object',
       defaultValue: {
-        username: 'John Doe',
-        email: 'john.doe@example.com',
+        username: 'Test User',
+        email: 'test.user@thomasmore.be',
         id: 'sampleId',
         ref: {},
       },
@@ -45,6 +45,26 @@ WithNoEmail.args = {
   userData: {
     username: 'Test user3',
     id: 'sampleId3',
+    ref: {},
+  },
+};
+
+export const WithLongUsername = Template.bind({});
+WithLongUsername.args = {
+  userData: {
+    username: 'This is a very long username that might cause layout issues',
+    email: 'test4@thomasmore.be',
+    id: 'sampleId4',
+    ref: {},
+  },
+};
+
+export const WithSpecialCharacters = Template.bind({});
+WithSpecialCharacters.args = {
+  userData: {
+    username: 'User!@#$%^&*()',
+    email: 'test5@thomasmore.be',
+    id: 'sampleId5',
     ref: {},
   },
 };
