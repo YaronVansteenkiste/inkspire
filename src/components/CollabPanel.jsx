@@ -93,7 +93,6 @@ export const CollabPanel = (props) => {
                 strokeColor={color}
                 allowOnlyPointerType="all"
             />
-            <Alert />
         </Col>
     );
 };

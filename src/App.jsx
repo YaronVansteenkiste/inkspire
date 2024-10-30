@@ -19,6 +19,7 @@ import {CreateCollabPage} from "./pages/CreateCollabPage.jsx";
 import {LoginPage} from "./pages/LoginPage.jsx";
 import {RegisterPage} from "./pages/RegisterPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import Alert from "./components/Alert.jsx";
 
 const Layout = () => {
     return (
@@ -26,6 +27,7 @@ const Layout = () => {
             <Providers>
             <AnimatedBackground/>
             <Header images={IMAGES_DATA}/>
+            <Alert/>
             <Outlet/>
             <Footer/>
             </Providers>

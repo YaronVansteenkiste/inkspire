@@ -5,6 +5,7 @@ import PostCard from "./PostCard.jsx";
 import {ReactTyped} from "react-typed";
 
 
+
 export function TrendingCarousel(props) {
     const { trendingData } = props;
 

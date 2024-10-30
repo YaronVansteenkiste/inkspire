@@ -93,8 +93,6 @@ export function CreatePostPage() {
                     <button type="submit" className="btn btn-primary">Upload</button>
                 </div>
             </form>
-
-            <Alert />
         </div>
     );
 }
