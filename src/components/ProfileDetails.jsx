@@ -1,6 +1,7 @@
 import React from 'react';
 
 export function ProfileDetails({ userData }) {
+
     return (
         <div className="card mb-3">
             <div className="card-body">
