@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, Card, Col, Container, Figure, Form, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Figure, Form, Row, Spinner } from 'react-bootstrap';
 import { useImageContext } from "../context/ImageFromDbContext.jsx";
 import { useCommentContext } from "../context/CommentFromDbContext.jsx";
 import Comment from "../components/Comment.jsx";
+import { useUserContext } from "../context/UserFromDbContext.jsx";
+import Avvvatars from "avvvatars-react";
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 export function PictureDetails() {
     const { id } = useParams();
     const { images, incrementLikes } = useImageContext();
-    const { comments, addComment } = useCommentContext();
+    const { comments, handleCommentSubmit } = useCommentContext();
+    const { users } = useUserContext();
+
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(true);
     const [liked, setLiked] = useState(false);
     const [commentText, setCommentText] = useState("");
+
+    const user = users.find(user => user.id === image?.authorId);
+    const authorName = user ? user.username : "Anonymous";
 
     useEffect(() => {
         const foundImage = images.find(image => image.id === id);
@@ -31,73 +40,54 @@ export function PictureDetails() {
         }
     };
 
-    const handleCommentSubmit = async (e) => {
-        e.preventDefault();
-        if (commentText.trim()) {
-            await addComment({
-                imageId: id,
-                author: "Anonymous",
-                text: commentText,
-                timestamp: Date.now()
-            });
-            setCommentText("");
-        }
-    };
-
     if (loading) {
-        return <h1>Loading...</h1>;
+        return <Spinner animation="border" className="d-block mx-auto" />;
     }
 
     if (!image) {
-        return <h1>Image not found</h1>;
+        return <h1 className="text-center mt-5">Image not found</h1>;
     }
 
     const imageComments = comments.filter(comment => comment.imageId === id);
 
     return (
         <Container>
-            <Row className="justify-content-md-center">
-                <Col md={12}>
-                    <h1 className="text-center">{image.title}</h1>
-                    <p className="text-center">published on {new Date(image.publishDate).toLocaleString()}</p>
+            <Row className="justify-content-center mt-4">
+                <Col md={8} className="text-center">
+                    <h1>{image.title}</h1>
+                    <p>Published on {new Date(image.publishDate).toLocaleDateString()}</p>
                 </Col>
             </Row>
-            <Row className="justify-content-center mt-4">
-                <Col md={6} className="d-flex justify-content-center">
+            <Row className="justify-content-center my-4">
+                <Col md={5} className="text-center">
                     <Figure>
-                        <Figure.Image
-                            width={300}
-                            alt={image.title}
-                            src={image.url}
-                        />
+                        <Zoom>
+                            <Figure.Image width={300} alt={image.title} src={image.url} />
+                        </Zoom>
                     </Figure>
                 </Col>
-                <Col md={6}>
+                <Col md={5}>
                     <Card className="h-100">
-                        <Card.Header>
-                            <Card.Title className="text-center">Author: {image.author}</Card.Title>
-                        </Card.Header>
-                        <Card.Body>
+                        <Card.Body className="text-center">
+                            <Avvvatars value={authorName} size={40} className="mb-3" />
+                            <Card.Title>Author: {authorName}</Card.Title>
                             <Card.Text>{image.description}</Card.Text>
                             <Card.Text><b>Category</b>: {image.category}</Card.Text>
-                            <div className="d-flex justify-content-center">
-                                <Button variant="outline-secondary" size="sm" className="me-4" onClick={() => handleLike()}>
-                                    {liked ? '💔' : '❤️'}
-                                </Button>
-                                <h4>{image.likes}</h4>
-                            </div>
-
+                            <Button variant="outline-secondary" size="sm" className="me-2" onClick={handleLike}>
+                                {liked ? '💔' : '❤️'}
+                            </Button>
+                            <span className="h4">{image.likes}</span>
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
-            <Row className="justify-content-md-center mt-4">
-                <Col md={12}>
+            <Row className="justify-content-center mt-4">
+                <Col md={10}>
                     <Card>
-                        <Card.Footer>
+                        <Card.Body>
                             <Card.Title className="text-center">Comments</Card.Title>
-                            <Form onSubmit={handleCommentSubmit}>
-                                <Form.Group className="mb-3">
+                            <Form onSubmit={(e) => handleCommentSubmit(e, id, commentText, setCommentText)} className="mb-3">
+                                <Form.Group>
                                     <Form.Control
                                         type="text"
                                         placeholder="Add a comment..."
@@ -105,14 +95,14 @@ export function PictureDetails() {
                                         onChange={(e) => setCommentText(e.target.value)}
                                     />
                                 </Form.Group>
-                                <Button variant="primary" type="submit">Submit</Button>
+                                <Button variant="primary" type="submit" className="mt-2">Submit</Button>
                             </Form>
-                            <div className="mt-3">
+                            <div>
                                 {imageComments.map(comment => (
                                     <Comment key={comment.id} {...comment} />
                                 ))}
                             </div>
-                        </Card.Footer>
+                        </Card.Body>
                     </Card>
                 </Col>
             </Row>
