@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../services/firebase.js";
-import { Navigate } from 'react-router-dom';
+import {signInWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../services/firebase.js";
+import {Navigate} from 'react-router-dom';
 
 export function LoginPage() {
     const [formData, setFormData] = useState({

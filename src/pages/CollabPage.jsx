@@ -17,4 +17,4 @@ export function CollabPage ()  {
             <Collablist items={collaborations} itemType="collab" />
         </Row>
     );
-};
+}

@@ -49,6 +49,6 @@ function Header(props) {
             </Container>
         </Navbar>
     );
-};
+}
 
 export default Header;
