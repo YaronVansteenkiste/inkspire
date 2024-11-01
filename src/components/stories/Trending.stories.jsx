@@ -3,7 +3,6 @@ import {TrendingCarousel} from '../Trending.jsx';
 import {MemoryRouter} from 'react-router-dom';
 
 export default {
-    title: 'Components/TrendingCarousel',
     component: TrendingCarousel,
     decorators: [
         (Story) => (

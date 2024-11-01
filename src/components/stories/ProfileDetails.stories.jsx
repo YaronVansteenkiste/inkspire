@@ -2,7 +2,6 @@ import React from 'react';
 import { ProfileDetails } from '../ProfileDetails.jsx';
 
 const meta = {
-  title: 'Components/ProfileDetails',
   component: ProfileDetails,
   argTypes: {
     userData: {
