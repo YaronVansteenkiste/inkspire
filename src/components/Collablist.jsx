@@ -1,4 +1,3 @@
-// src/components/Collablist.jsx
 import React from 'react';
 import { Card, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";

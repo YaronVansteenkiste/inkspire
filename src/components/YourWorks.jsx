@@ -22,10 +22,10 @@ function YourWorks(props) {
 
     return (
         <div>
-            <div>
-                <h1 className="d-inline me-2">Your Works</h1>
-                <NavLink className="btn btn-outline-primary align-top mt-2 me-2" to="/upload">Upload</NavLink>
-                <Button className="d-inline mb-3" variant="outline-primary" onClick={handleToggleShow}>
+            <div className="d-flex align-items-center mb-3">
+                <h1 className="me-2">Your Works</h1>
+                <NavLink className="btn btn-outline-primary me-2" to="/upload">Upload</NavLink>
+                <Button variant="outline-primary" onClick={handleToggleShow}>
                     {show ? "Close" : "Open"}
                 </Button>
             </div>

@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useState } from 'react';
-import { useCollectionData } from "react-firebase-hooks/firestore";
-import { collection, updateDoc } from 'firebase/firestore';
-import { firestoreDB } from '../services/firebase.js';
+import React, {createContext, useContext, useState} from 'react';
+import {useCollectionData} from "react-firebase-hooks/firestore";
+import {collection, updateDoc, deleteDoc} from 'firebase/firestore';
+import {firestoreDB} from '../services/firebase.js';
 
 const ImageContext = createContext();
 
@@ -21,11 +21,11 @@ const imageConverter = {
     fromFirestore: function (snapshot, options) {
         const data = snapshot.data();
         const id = snapshot.id;
-        return { ...data, id, ref: snapshot.ref };
+        return {...data, id, ref: snapshot.ref};
     }
 };
 
-export function ImagesProvider({ children }) {
+export function ImagesProvider({children}) {
     const query = collection(firestoreDB, 'images').withConverter(imageConverter);
     const [values, loading, error] = useCollectionData(query);
     const images = values ?? [];
@@ -38,10 +38,23 @@ export function ImagesProvider({ children }) {
         });
     }
 
-    const api = {
-        images, imageSelected, setImageSelected, incrementLikes
+    const updateImage = async (updatedImage) => {
+        const imageRef = updatedImage.ref;
+        await updateDoc(imageRef, {
+            title: updatedImage.title,
+            description: updatedImage.description,
+            category: updatedImage.category
+        });
     };
 
+    const removeImage = async (image) => {
+        const imageRef = image.ref;
+        await deleteDoc(imageRef);
+    };
+
+    const api = {
+        images, imageSelected, setImageSelected, incrementLikes, updateImage, removeImage
+    };
     return (
         <ImageContext.Provider value={api}>
             {children}
@@ -49,4 +62,5 @@ export function ImagesProvider({ children }) {
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useImageContext = () => useContext(ImageContext);

@@ -33,14 +33,14 @@ function Header(props) {
                     {currentUser && currentUserData ? (
                         <Nav className="d-block d-lg-flex">
                             <NavLink to="/upload"
-                                     className="btn btn-secondary text-light rounded mx-0 mx-lg-1 mt-2 mt-lg-0">Upload</NavLink>
+                                     className="btn btn-secondary text-light rounded mx-2 mx-lg-1 mt-2 mt-lg-0">Upload</NavLink>
                             <NavLink to="/profile"
                                      className="btn btn-secondary text-light rounded mx-0 mx-lg-1 mt-2 mt-lg-0">{currentUserData.username}</NavLink>
                         </Nav>
                     ) : (
                         <Nav className="d-block d-lg-flex">
                             <NavLink to="/register"
-                                     className="btn btn-secondary text-light rounded mx-0 mx-lg-1 mt-2 mt-lg-0">Register</NavLink>
+                                     className="btn btn-secondary text-light rounded mx-2 mx-lg-1 mt-2 mt-lg-0">Register</NavLink>
                             <NavLink to="/login"
                                      className="btn btn-primary text-dark rounded mx-0 mx-lg-1 mt-2 mt-lg-0">Login</NavLink>
                         </Nav>

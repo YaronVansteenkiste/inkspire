@@ -4,7 +4,6 @@ const AlertContext = createContext();
 
 export function AlertProvider(props) {
     const [message, setMessage] = useState("");
-    console.log({message});
     const clearMessage = () => setMessage("");
 
     const api = {

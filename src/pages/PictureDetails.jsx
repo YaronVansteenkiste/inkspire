@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import { Button, Card, Col, Container, Figure, Form, Row, Spinner } from 'react-bootstrap';
 import { useImageContext } from "../context/ImageFromDbContext.jsx";
 import { useCommentContext } from "../context/CommentFromDbContext.jsx";
@@ -14,6 +14,7 @@ export function PictureDetails() {
     const { images, incrementLikes } = useImageContext();
     const { comments, handleCommentSubmit } = useCommentContext();
     const { users } = useUserContext();
+    const { currentUserData } = useUserContext();
 
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -62,11 +63,23 @@ export function PictureDetails() {
 
     return (
         <Container>
+
             <Row className="justify-content-center mt-4">
+
                 <Col md={8} className="text-center">
                     <h1>{image.title}</h1>
+
                     <p>Published on {new Date(image.publishDate).toLocaleDateString()}</p>
+
                 </Col>
+                <Col md={2}>
+                    {currentUserData?.id === image?.authorId && (
+                        <Button as={Link} to={`/edit-image/${image.id}`} variant="warning" className="mt-3">
+                            Edit
+                        </Button>
+                    )}
+                </Col>
+
             </Row>
             <Row className="justify-content-center my-4">
                 <Col md={5} className="text-center">
@@ -87,6 +100,7 @@ export function PictureDetails() {
                                 {liked ? '💔' : '❤️'}
                             </Button>
                             <span className="h4">{formatLikes(image.likes)}</span>
+
                         </Card.Body>
                     </Card>
                 </Col>

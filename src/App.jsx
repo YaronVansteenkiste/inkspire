@@ -20,6 +20,7 @@ import {LoginPage} from "./pages/LoginPage.jsx";
 import {RegisterPage} from "./pages/RegisterPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import Alert from "./components/Alert.jsx";
+import {EditImagePage} from "./pages/EditImagePage.jsx";
 
 const Layout = () => {
     return (
@@ -46,11 +47,12 @@ function App() {
                         <Route path="post/:id" element={<PictureDetails />}/>
                         <Route path="search/:searchQuery" element={<SearchResultsPage />}/>
                         <Route path="collab/:id" element={<CollabDetailsPage />}/>
-                        <Route path={"/upload"} element={<CreatePostPage/>}/>
-                        <Route path={"/create-collab"} element={<CreateCollabPage/>}/>
-                        <Route path="/login" element={<LoginPage/>}/>
-                        <Route path="/register" element={<RegisterPage/>}/>
-                        <Route path="/profile" element={<ProfilePage />}/>
+                        <Route path={"upload"} element={<CreatePostPage/>}/>
+                        <Route path={"create-collab"} element={<CreateCollabPage/>}/>
+                        <Route path="login" element={<LoginPage/>}/>
+                        <Route path="register" element={<RegisterPage/>}/>
+                        <Route path="profile" element={<ProfilePage />}/>
+                        <Route path="edit-image/:id" element={<EditImagePage/>}/>
                 </Route>
             </Routes>
         </HashRouter>

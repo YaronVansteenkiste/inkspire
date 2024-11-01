@@ -15,7 +15,6 @@ const CollabConverter = {
     },
     fromFirestore: function (snapshot, options) {
         const data = snapshot.data();
-        console.log("Loaded data from Firestore:", data);
         const id = snapshot.id;
         return { ...data, id, ref: snapshot.ref };
     }
@@ -25,7 +24,6 @@ export function CollabProvider({ children }) {
     const query = collection(firestoreDB, 'collaborations').withConverter(CollabConverter);
     const [values, loading, error] = useCollectionData(query);
     const collaborations = values ?? [];
-    console.log("Collaborations state:", collaborations);
     const [collabSelected, setCollabSelected] = useState(undefined);
 
     const addCollaboration = async (collab) => {
@@ -43,4 +41,5 @@ export function CollabProvider({ children }) {
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCollabContext = () => useContext(CollabContext);

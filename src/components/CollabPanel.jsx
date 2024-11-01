@@ -95,13 +95,7 @@ export const CollabPanel = (props) => {
         }
     }, [collab, setMessage]);
 
-    useEffect(() => {
-        const autoSaveInterval = setInterval(() => {
-            handleSaveCanvas();
-        }, 60000); // Auto-save every 60 seconds
 
-        return () => clearInterval(autoSaveInterval);
-    }, []);
 
     return (
         <Col s={12}>

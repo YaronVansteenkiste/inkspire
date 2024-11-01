@@ -20,6 +20,7 @@ export function AuthProvider({ children }) {
         await signOut(auth);
         setCurrentUser(null);
         navigate('/');
+        window.location.reload();
     };
 
     return (
@@ -29,4 +30,5 @@ export function AuthProvider({ children }) {
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuthContext = () => useContext(AuthContext);

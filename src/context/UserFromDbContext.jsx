@@ -47,7 +47,6 @@ export function UserProvider({ children }) {
         users, userSelected, setUserSelected, loading, error, addUser, currentUserData
     };
 
-    console.log(userSelected)
 
     return (
         <UserContext.Provider value={api}>
@@ -56,4 +55,5 @@ export function UserProvider({ children }) {
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useUserContext = () => useContext(UserContext);
