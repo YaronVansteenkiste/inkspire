@@ -50,6 +50,16 @@ export function PictureDetails() {
 
     const imageComments = comments.filter(comment => comment.imageId === id);
 
+    function formatLikes(likes) {
+    if (likes >= 1000000) {
+        return (likes / 1000000).toFixed(1) + 'M';
+    } else if (likes >= 1000) {
+        return (likes / 1000).toFixed(1) + 'k';
+    } else {
+        return likes.toString();
+    }
+}
+
     return (
         <Container>
             <Row className="justify-content-center mt-4">
@@ -76,7 +86,7 @@ export function PictureDetails() {
                             <Button variant="outline-secondary" size="sm" className="me-2" onClick={handleLike}>
                                 {liked ? '💔' : '❤️'}
                             </Button>
-                            <span className="h4">{image.likes}</span>
+                            <span className="h4">{formatLikes(image.likes)}</span>
                         </Card.Body>
                     </Card>
                 </Col>
