@@ -20,6 +20,9 @@ import {RegisterPage} from "./pages/RegisterPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import Alert from "./components/Alert.jsx";
 import {EditImagePage} from "./pages/EditImagePage.jsx";
+import {NoConnectionPage} from "./pages/NoConnectionPage.jsx";
+import fs from 'fs';
+
 
 const Layout = () => {
     return (
@@ -35,27 +38,40 @@ const Layout = () => {
     )
 }
 
+function checkFirebaseConfig() {
+    return (
+        import.meta.env.VITE_FIREBASE_API_KEY &&
+        import.meta.env.VITE_FIREBASE_PROJECT_ID &&
+        import.meta.env.VITE_FIREBASE_STORAGE_BUCKET &&
+        import.meta.env.VITE_FIREBASE_APP_ID
+    );
+}
 function App() {
+    const isFirebaseConfigValid = checkFirebaseConfig();
 
     return (
-        <HashRouter>
-            <Routes>
-                <Route path="/" element={<Layout/>}>
-                    <Route index element={<HomePage/>}/>
-                    <Route path="collab" element={<CollabPage/>}/>
-                    <Route path="post/:id" element={<PictureDetails/>}/>
-                    <Route path="search/:searchQuery" element={<SearchResultsPage/>}/>
-                    <Route path="collab/:id" element={<CollabDetailsPage/>}/>
-                    <Route path={"upload"} element={<CreatePostPage/>}/>
-                    <Route path={"create-collab"} element={<CreateCollabPage/>}/>
-                    <Route path="login" element={<LoginPage/>}/>
-                    <Route path="register" element={<RegisterPage/>}/>
-                    <Route path="profile" element={<ProfilePage/>}/>
-                    <Route path="edit-image/:id" element={<EditImagePage/>}/>
-                    <Route path="no-connection" element={<NoConnectionPage/>}/>
-                </Route>
-            </Routes>
-        </HashRouter>
+        isFirebaseConfigValid ? (
+            <HashRouter>
+                <Routes>
+                    <Route path="/" element={<Layout/>}>
+                        <Route index element={<HomePage/>}/>
+                        <Route path="collab" element={<CollabPage/>}/>
+                        <Route path="post/:id" element={<PictureDetails/>}/>
+                        <Route path="search/:searchQuery" element={<SearchResultsPage/>}/>
+                        <Route path="collab/:id" element={<CollabDetailsPage/>}/>
+                        <Route path={"upload"} element={<CreatePostPage/>}/>
+                        <Route path={"create-collab"} element={<CreateCollabPage/>}/>
+                        <Route path="login" element={<LoginPage/>}/>
+                        <Route path="register" element={<RegisterPage/>}/>
+                        <Route path="profile" element={<ProfilePage/>}/>
+                        <Route path="edit-image/:id" element={<EditImagePage/>}/>
+                        <Route path="no-connection" element={<NoConnectionPage/>}/>
+                    </Route>
+                </Routes>
+            </HashRouter>
+        ) : (
+            <NoConnectionPage/>
+        )
     )
 }
 
