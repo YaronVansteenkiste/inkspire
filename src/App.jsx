@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/scss/custom.scss'
 import './App.css'
 import {HashRouter, Outlet, Route, Routes} from "react-router-dom";
-import {COLLAB_DATA, IMAGES_DATA} from "./data/data.js";
 import {CollabPage} from "./pages/CollabPage.jsx";
 import {SearchResultsPage} from "./pages/SearchResultsPage.jsx";
 import {CollabDetailsPage} from "./pages/CollabDetailsPage.jsx";
@@ -27,7 +26,7 @@ const Layout = () => {
         <div>
             <Providers>
             <AnimatedBackground/>
-            <Header images={IMAGES_DATA}/>
+            <Header/>
             <Alert/>
             <Outlet/>
             <Footer/>

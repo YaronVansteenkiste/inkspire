@@ -10,7 +10,8 @@ import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
 
-function CommentForm({imageId, comments, handleCommentSubmit, commentText, setCommentText}) {
+function CommentForm(props) {
+    const {imageId, comments, handleCommentSubmit, commentText, setCommentText} = props;
     const imageComments = comments.filter(comment => comment.imageId === imageId);
 
     return (

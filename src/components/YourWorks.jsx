@@ -21,7 +21,7 @@ function YourWorks(props) {
     };
 
     return (
-        <div>
+        <>
             <div className="d-flex align-items-center mb-3">
                 <h1 className="me-2">Your Works</h1>
                 <NavLink className="btn btn-outline-primary me-2" to="/upload">Upload</NavLink>
@@ -40,7 +40,7 @@ function YourWorks(props) {
                     </Row>
                 </Container>
             )}
-        </div>
+        </>
     );
 }
 

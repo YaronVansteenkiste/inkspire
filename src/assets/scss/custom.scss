@@ -8,3 +8,16 @@ $headings-color: #BDBDBD;
 $body-color: #808080;
 
 @import "../../../node_modules/bootstrap";
+
+:root {
+    --body-bg: #242424;
+}
+
+body.light {
+    --body-bg: #954747;
+}
+
+body {
+    background-color: var(--body-bg);
+}
+

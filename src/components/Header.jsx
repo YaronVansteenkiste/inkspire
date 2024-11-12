@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
 import { SearchBar } from "./SearchBar.jsx";
 import { useImageContext } from "../context/ImageFromDbContext.jsx";
 import { useUserContext } from "../context/UserFromDbContext.jsx";
 import { useAuthContext } from "../context/AuthContext.jsx";
+import { FaSun, FaMoon } from 'react-icons/fa';
 
-function Header(props) {
+function Header() {
     const { images } = useImageContext();
     const { currentUserData } = useUserContext();
-    const { currentUser, logout } = useAuthContext();
+    const { currentUser } = useAuthContext();
     const suggestions = images.map(image => image.title);
 
+    const [theme, setTheme] = useState('dark');
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+            document.body.className = savedTheme;
+        }
+    }, []);
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        document.body.className = newTheme;
+    };
 
     return (
         <Navbar expand="lg" className="navbar-dark border-bottom border-light-subtle">
@@ -30,6 +47,9 @@ function Header(props) {
                         <NavLink to="/collab" className="nav-link">Collab</NavLink>
                     </Nav>
                     <SearchBar suggestions={suggestions}/>
+                    <button onClick={toggleTheme} className="btn btn-secondary ms-2">
+                        {theme === 'light' ? <FaMoon /> : <FaSun />}
+                    </button>
                     {currentUser && currentUserData ? (
                         <Nav className="d-block d-lg-flex">
                             <NavLink to="/upload"

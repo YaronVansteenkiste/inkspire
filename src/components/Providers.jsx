@@ -12,7 +12,6 @@ export function Providers({children}) {
             <ImagesProvider>
                 <CollabProvider>
                     <AlertProvider>
-
                         <UserProvider>
                             <CommentProvider>
                                 {children}

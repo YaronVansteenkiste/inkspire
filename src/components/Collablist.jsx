@@ -3,7 +3,8 @@ import { Card, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCollabContext } from '../context/CollabFromDbContext.jsx';
 
-export function Collablist({ items, itemType }) {
+export function Collablist(props) {
+    const {items, itemType} = props;
     const { loading } = useCollabContext();
 
     if (loading) {
