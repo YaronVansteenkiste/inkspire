@@ -25,11 +25,11 @@ const Layout = () => {
     return (
         <div>
             <Providers>
-            <AnimatedBackground/>
-            <Header/>
-            <Alert/>
-            <Outlet/>
-            <Footer/>
+                <AnimatedBackground/>
+                <Header/>
+                <Alert/>
+                <Outlet/>
+                <Footer/>
             </Providers>
         </div>
     )
@@ -41,17 +41,18 @@ function App() {
         <HashRouter>
             <Routes>
                 <Route path="/" element={<Layout/>}>
-                        <Route index element={<HomePage />}/>
-                        <Route path="collab" element={<CollabPage />}/>
-                        <Route path="post/:id" element={<PictureDetails />}/>
-                        <Route path="search/:searchQuery" element={<SearchResultsPage />}/>
-                        <Route path="collab/:id" element={<CollabDetailsPage />}/>
-                        <Route path={"upload"} element={<CreatePostPage/>}/>
-                        <Route path={"create-collab"} element={<CreateCollabPage/>}/>
-                        <Route path="login" element={<LoginPage/>}/>
-                        <Route path="register" element={<RegisterPage/>}/>
-                        <Route path="profile" element={<ProfilePage />}/>
-                        <Route path="edit-image/:id" element={<EditImagePage/>}/>
+                    <Route index element={<HomePage/>}/>
+                    <Route path="collab" element={<CollabPage/>}/>
+                    <Route path="post/:id" element={<PictureDetails/>}/>
+                    <Route path="search/:searchQuery" element={<SearchResultsPage/>}/>
+                    <Route path="collab/:id" element={<CollabDetailsPage/>}/>
+                    <Route path={"upload"} element={<CreatePostPage/>}/>
+                    <Route path={"create-collab"} element={<CreateCollabPage/>}/>
+                    <Route path="login" element={<LoginPage/>}/>
+                    <Route path="register" element={<RegisterPage/>}/>
+                    <Route path="profile" element={<ProfilePage/>}/>
+                    <Route path="edit-image/:id" element={<EditImagePage/>}/>
+                    <Route path="no-connection" element={<NoConnectionPage/>}/>
                 </Route>
             </Routes>
         </HashRouter>

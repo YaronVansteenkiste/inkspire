@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { handleImageUpload } from '../services/imageUploadService';
+import React, {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {handleImageUpload} from '../services/imageUploadService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { useAlertContext } from '../context/AlertContext.jsx';
-import { useUserContext } from '../context/UserFromDbContext.jsx';
-import Alert from '../components/Alert.jsx';
+import {useAlertContext} from '../context/AlertContext.jsx';
+import {useUserContext} from '../context/UserFromDbContext.jsx';
 
 export function CreatePostPage() {
     const [file, setFile] = useState(null);
