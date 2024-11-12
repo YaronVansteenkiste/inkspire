@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Alert as BootstrapAlert } from 'react-bootstrap';
 import { useAlertContext } from '../context/AlertContext.jsx';
 import { FaInfoCircle } from 'react-icons/fa';
@@ -6,6 +6,16 @@ import { FaInfoCircle } from 'react-icons/fa';
 
 function Alert() {
     const { message, clearMessage } = useAlertContext();
+
+    useEffect(() => {
+        if (message) {
+            const timer = setTimeout(() => {
+                clearMessage();
+            }, 6000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [message, clearMessage]);
 
     return (
         <BootstrapAlert

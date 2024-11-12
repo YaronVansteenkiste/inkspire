@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import Avvvatars from 'avvvatars-react';
 import { Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Comment({ author, text, timestamp }) {
+const Comment = forwardRef((props, ref) => {
+    const {text, author, timestamp } = props;
+
     return (
         <Card className="my-3 p-2">
             <Card.Body>
@@ -24,6 +26,5 @@ function Comment({ author, text, timestamp }) {
             </Card.Body>
         </Card>
     );
-}
-
+});
 export default Comment;

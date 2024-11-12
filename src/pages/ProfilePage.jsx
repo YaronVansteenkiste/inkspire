@@ -39,7 +39,7 @@ export function ProfilePage() {
                 </Col>
                 <Col md={4}>
                     <Card className="mb-3">
-                        <Card.Header className="text-center mx-auto">
+                        <Card.Header className="mx-auto">
                             <Avvvatars value={currentUserData.username} size={100} />
                         </Card.Header>
                         <Card.Body>

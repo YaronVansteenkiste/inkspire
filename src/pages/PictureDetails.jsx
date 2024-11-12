@@ -120,18 +120,20 @@ export function PictureDetails() {
                 </Col>
                 <Col md={5}>
                     <Card className="h-100">
-                        <Card.Body className="text-center">
-                            <Avvvatars value={authorName} size={40} className="mb-3"/>
+                        <Card.Body className="text-center d-flex flex-column align-items-center">
                             <Card.Title>Author: {authorName}</Card.Title>
+                            <Avvvatars value={authorName} size={40} className="mb-3" />
                             <Card.Text>{image.description}</Card.Text>
                             <Card.Text><b>Category</b>: {image.category}</Card.Text>
-                            <Button variant="outline-secondary" size="sm" className="me-2" onClick={handleLike}>
-                                {liked ? '💔' : '❤️'}
-                            </Button>
-                            <span className="h4">{formatLikes(image.likes)}</span>
-
+                            <div className="d-flex align-items-center justify-content-center">
+                                <Button variant="outline-secondary" size="sm" className="me-2" onClick={handleLike}>
+                                    {liked ? '💔' : '❤️'}
+                                </Button>
+                                <span className="h4">{formatLikes(image.likes)}</span>
+                            </div>
                         </Card.Body>
                     </Card>
+
                 </Col>
             </Row>
             <Row className="justify-content-center mt-4">
