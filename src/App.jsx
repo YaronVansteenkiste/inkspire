@@ -21,7 +21,6 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import Alert from "./components/Alert.jsx";
 import {EditImagePage} from "./pages/EditImagePage.jsx";
 import {NoConnectionPage} from "./pages/NoConnectionPage.jsx";
-import fs from 'fs';
 
 
 const Layout = () => {
