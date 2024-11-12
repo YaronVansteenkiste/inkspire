@@ -6,18 +6,95 @@ $light-border-subtle: #404040;
 $border-color: #606060;
 $headings-color: #BDBDBD;
 $body-color: #808080;
+$success: #28a745;
+$card-bg: #1A1A1A;
+$card-title-color: #4e3a3a;
+$p-text-color: #675d5d;
+
+$primary-light: #895a5a;
+$secondary-light: #d7b99a;
+$body-bg-light: #4c7b4b;
+$dark-light: #E1C6A8;
+$light-border-subtle-light: #BDBDBD;
+$border-color-light: #808080;
+$headings-color-light: #404040;
+$body-color-light: #606060;
+$success-light: #5cb85c;
+$card-bg-light: #4c7b4b;
+$card-title-color-light: #404040;
+$p-text-color-light: #404040;
 
 @import "../../../node_modules/bootstrap";
 
-:root {
-    --body-bg: #242424;
+body.dark {
+  background-color: $body-bg;
+  color: $body-color;
+
+  .btn-secondary {
+    background-color: $secondary;
+    color: $body-color;
+  }
+
+  .btn-primary {
+    background-color: $primary;
+    color: $dark;
+  }
+
+  .btn-success {
+    background-color: $success;
+    color: $dark;
+  }
+
+  .card {
+    background-color: $card-bg;
+  }
+
+  .card-title {
+    color: $card-title-color;
+  }
+
+  .form-control {
+    background-color: $dark;
+  }
+
+  p {
+    color: $p-text-color;
+  }
+
 }
 
 body.light {
-    --body-bg: #954747;
-}
+  background-color: $body-bg-light;
+  color: $body-color-light;
 
-body {
-    background-color: var(--body-bg);
-}
+  .btn-secondary {
+    background-color: $secondary-light;
+    color: $body-color-light;
+  }
 
+  .btn-primary {
+    background-color: $primary-light;
+    color: $dark-light;
+  }
+
+  .btn-success {
+    background-color: $success-light;
+    color: $dark-light;
+  }
+
+  .card {
+    background-color: $card-bg-light;
+  }
+
+  .card-title {
+    color: $card-title-color-light;
+  }
+
+  p {
+    color: $p-text-color-light;
+  }
+
+  .form-control {
+    background-color: $dark-light;
+  }
+}

@@ -15,7 +15,7 @@ function PostCard(props) {
             </Link>
             {isHovered && (
                 <figcaption>
-                    <p className="fw-bold">{post.title}</p>
+                    <p className="fw-bold text-primary">{post.title}</p>
                     <p>{post.description}</p>
                     <p>{post.author}</p>
                 </figcaption>

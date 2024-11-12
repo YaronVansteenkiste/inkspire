@@ -21,11 +21,13 @@ body {
     position: relative;
     color: white;
     padding: 10px;
-    transform: translateY(-100%)
+    transform: translateY(-100%);
+    pointer-events: none;
 }
 
-.post-image:hover {
-    filter: brightness(0.7);
+
+.post-image img:hover {
+    filter: brightness(0.2) blur(1px);
     transition: ease-in-out 0.3s;
 }
 
