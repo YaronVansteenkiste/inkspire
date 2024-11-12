@@ -30,6 +30,14 @@ export async function handleImageUpload(file, title, authorId, description, cate
     return docRef.id;
 }
 
+
+export async function handleImageUpdate(file, filename) {
+    const storageRef = ref(storage, `images/${filename}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    return url;
+}
+
 async function uploadJsonToStorage(jsonData, filename) {
     const storageRef = ref(storage, `collaborations/${filename}`);
     const blob = new Blob([JSON.stringify(jsonData)], { type: 'application/json' });

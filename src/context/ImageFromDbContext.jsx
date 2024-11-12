@@ -43,7 +43,8 @@ export function ImagesProvider({children}) {
         await updateDoc(imageRef, {
             title: updatedImage.title,
             description: updatedImage.description,
-            category: updatedImage.category
+            category: updatedImage.category,
+            url: updatedImage.url
         });
     };
 
